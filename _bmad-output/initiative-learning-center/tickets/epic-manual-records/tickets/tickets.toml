@@ -1,0 +1,37 @@
+next_id = 5
+
+[[entry]]
+id = 2
+type = "story"
+title = "Create and edit a learning item manually"
+description = "Lets an authorized administrator enter and correct approved catalog fields in the shared LearningItem model created by ticket 5.7, using the agreed access policy."
+verify = "An authorized administrator saves and corrects an item in the ticket 5.7 model and confirms its manual provenance and attribution."
+covers = ["R1", "R2", "R3"]
+after = ["5.3", "1.2", "5.1", "5.7"]
+hitl = true
+risk = "medium"
+refine = true
+
+[[entry]]
+id = 3
+type = "story"
+title = "Record an employee completion or certification"
+description = "Allows an authorized administrator to maintain an employee-linked learning record using the approved identity key and record dictionary."
+verify = "An authorized administrator saves a valid employee record and the approved employee can see it without exposing it to another employee."
+covers = ["R1", "R2", "R3"]
+after = [4, "1.2", "5.1"]
+hitl = true
+risk = "high"
+refine = true
+unknown = "Which employee record types and fields did spike 2.4 approve?"
+
+[[entry]]
+id = 4
+type = "spike"
+title = "Define employee learning record fields and linkage"
+description = "After identity decision 5.2, define employee-specific record types, fields, employee linkage, uniqueness, visibility, and conflict behavior."
+verify = "HR/Learning, IT/Identity, and Security approve the employee-record section of the data dictionary or list each unresolved choice, owner, and blocked ticket."
+covers = ["R2", "R3"]
+after = ["5.3", "5.2"]
+hitl = true
+risk = "high"

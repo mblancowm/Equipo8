@@ -1,0 +1,55 @@
+# Epic order for the Learning Center initiative. IDs are permanent; table order is build order.
+
+[[epic]]
+id = 5
+slug = "epic-application-foundation"
+title = "Application foundation"
+description = "Four engineers can run one local application baseline, establish the approved shared catalog schema, and use consistent delivery contracts."
+covers = ["RULE-1", "RULE-3", "RULE-6"]
+risk = "medium"
+
+[[epic]]
+id = 1
+slug = "epic-foundation-access"
+title = "Employee identity and access"
+description = "Employees and learning administrators can access only the information and actions allowed by the approved role policy."
+covers = ["R2"]
+after = [{ epic = "epic-application-foundation", needs = "the local scaffold and approved identity/access contract" }]
+risk = "high"
+
+[[epic]]
+id = 2
+slug = "epic-manual-records"
+title = "Manual learning information management"
+description = "Authorized administrators can add and correct learning items and employee learning records with validation and provenance."
+covers = ["R3"]
+after = [
+  { epic = "epic-application-foundation", needs = "the local scaffold and approved catalog/identity contracts" },
+  { epic = "epic-foundation-access", needs = "the approved identity and administrator roles" }
+]
+risk = "medium"
+
+[[epic]]
+id = 3
+slug = "epic-sharepoint-sync"
+title = "Approved source synchronization"
+description = "One approved SharePoint source can be synchronized repeatably, with visible health and preserved provenance."
+covers = ["R4", "R5"]
+after = [
+  { epic = "epic-application-foundation", needs = "the local scaffold, catalog field dictionary, and verified source map" },
+  { epic = "epic-foundation-access", needs = "approved administrator roles and server-side access enforcement for the sync-health view" }
+]
+risk = "high"
+
+[[epic]]
+id = 4
+slug = "epic-employee-search"
+title = "Employee search and record discovery"
+description = "Employees can find approved manual and imported learning information through one authorized search experience."
+covers = ["R1", "R2"]
+after = [
+  { epic = "epic-foundation-access", needs = "the approved access policy" },
+  { epic = "epic-manual-records", needs = "searchable manual learning items and personal records" },
+  { epic = "epic-sharepoint-sync", needs = "approved normalized source records" }
+]
+risk = "medium"

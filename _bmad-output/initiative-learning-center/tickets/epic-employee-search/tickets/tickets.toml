@@ -1,0 +1,38 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Search approved learning information"
+description = "Lets an employee search the unified approved catalog records available to that employee."
+verify = "An employee searches approved English, Spanish, accented, and mixed-language samples and sees each authorized manual or imported item once, ranked by the shared contract, with type and source."
+covers = ["R1", "R2"]
+after = ["2.2", "2.3", "3.2", "1.2"]
+hitl = true
+risk = "medium"
+refine = true
+unknown = "Which catalog fields are searchable and which source-approved filters belong in first-release search?"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Filter and open a search result"
+description = "Lets an employee narrow results using approved available fields and open an authorized detail or source link."
+verify = "A reviewer can apply and clear the agreed filters and reach a permitted detail without losing the search context."
+covers = ["R2"]
+after = [1]
+hitl = true
+risk = "medium"
+refine = true
+unknown = "Which filters and source links are approved for employees?"
+
+[[entry]]
+id = 3
+type = "story"
+title = "View personal learning records"
+description = "Shows an authenticated employee the employee's own approved training and certification records."
+verify = "The employee sees the agreed personal records and statuses; a second employee cannot see them."
+covers = ["R2", "R3"]
+after = [1, "2.3", "1.2"]
+hitl = true
+risk = "high"
+refine = true
+unknown = "Which completion, credential, validity, and expiration fields belong in the first release?"

@@ -1,0 +1,40 @@
+next_id = 5
+
+[[entry]]
+id = 2
+type = "story"
+title = "Import approved SharePoint learning information"
+description = "Imports approved library fields into the canonical LearningItem model created by ticket 5.7, retaining each source identifier and permitted link."
+verify = "A source-owner-approved sample appears once in the shared LearningItem model with its source reference, expected fields, and per-record last_synced_at."
+covers = ["R1"]
+after = ["5.4", "5.3", "5.1", "5.7"]
+hitl = true
+risk = "high"
+refine = true
+unknown = "Does the source contain in-scope structured learning items and which automated permissions are approved?"
+
+[[entry]]
+id = 3
+type = "story"
+title = "Update imported records safely"
+description = "Applies approved learning-item changes repeatably and handles retries, duplicates, and source withdrawals according to the ownership policy."
+verify = "Repeated and changed sample imports produce the expected records without uncontrolled duplicates or silent data loss."
+covers = ["R2", "R4"]
+after = [2, "5.3"]
+hitl = true
+risk = "high"
+refine = true
+unknown = "How should source changes, withdrawals, and conflicts with manual edits be handled?"
+
+[[entry]]
+id = 4
+type = "story"
+title = "Show source synchronization health"
+description = "Provides administrators with last-success time, current status, and actionable import errors."
+verify = "An administrator can distinguish a successful, stale, and failed run and identify the next action."
+covers = ["R3", "R4"]
+after = [2]
+hitl = true
+risk = "medium"
+refine = true
+unknown = "What synchronization delay and recovery target should the pilot meet?"
