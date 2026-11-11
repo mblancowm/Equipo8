@@ -14,7 +14,7 @@ id = 2
 slug = "epic-manual-records"
 title = "Manual learning information management"
 description = "Authorized administrators can add and correct learning items and employee learning records with validation and provenance."
-covers = ["R3", "RULE-1", "RULE-3"]
+covers = ["R3"]
 after = [{ epic = 1, needs = "the approved identity and administration roles" }]
 risk = "medium"
 
@@ -23,7 +23,7 @@ id = 3
 slug = "epic-sharepoint-sync"
 title = "Approved source synchronization"
 description = "One approved SharePoint source can be synchronized repeatably, with visible health and preserved provenance."
-covers = ["R4", "R5", "RULE-4"]
+covers = ["R4", "R5"]
 after = [{ epic = 2, needs = "the canonical record fields and field ownership rules" }]
 risk = "high"
 

@@ -9,7 +9,7 @@ sources:
 companions:
   - _bmad-output/initiative-learning-center/ux-learning-center/DESIGN.md
   - _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-  - _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md
 after: ["epic-manual-records", "epic-sharepoint-sync"]
 risk: medium
 ---
@@ -56,7 +56,7 @@ Employees can find relevant learning information without searching each approved
 - prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, UJ-1, FR-1 to FR-4, SM-1
 - design — _bmad-output/initiative-learning-center/ux-learning-center/DESIGN.md
 - experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-3 and AD-6
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, AD-1, AD-3, AD-6, AD-7, AD-8, AD-9, and AD-10
 
 ## Notes
 

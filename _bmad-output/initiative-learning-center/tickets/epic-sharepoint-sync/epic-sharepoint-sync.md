@@ -7,7 +7,8 @@ covers: ["R4", "R5"]
 sources:
   - _bmad-output/initiative-learning-center/initiative-learning-center.md
 companions:
-  - _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md
+  - _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
   - _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md
 after: ["epic-manual-records"]
 risk: high
@@ -56,7 +57,8 @@ Employees can find approved information from the pilot source in Learning Center
 
 - parent — _bmad-output/initiative-learning-center/initiative-learning-center.md, Requirements R4/R5 and Constraint RULE-4
 - prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, FR-7 to FR-9 and OQ-1/OQ-4/OQ-8
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-2, AD-4, AD-5, AD-7
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, AD-1, AD-2, AD-4, AD-5, AD-7, AD-8, AD-9, and AD-10
+- experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md, Synchronization health and Accessibility Floor
 
 ## Notes
 

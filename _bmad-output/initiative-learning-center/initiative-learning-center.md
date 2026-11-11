@@ -9,7 +9,7 @@ sources:
 companions:
   - _bmad-output/initiative-learning-center/ux-learning-center/DESIGN.md
   - _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-  - _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md
 after: []
 risk: high
 ---
@@ -64,7 +64,7 @@ Employees can find relevant learning information and administrators can keep it 
 - source — _bmad-output/initiative-learning-center/sources/user-discovery-notes.md, Statements provided
 - design — _bmad-output/initiative-learning-center/ux-learning-center/DESIGN.md
 - experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, Decisions
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, Decisions
 
 ## Notes
 
@@ -72,4 +72,4 @@ Employees can find relevant learning information and administrators can keep it 
 - Assumption: a learning administrator can enter and correct records manually.
 - Open question: the source-system inventory and the contents of the example SharePoint folder are unknown; the SharePoint epic begins with a discovery spike.
 - Open question: identity, access, retention, language, and numeric success targets must be resolved before production.
-- Decision: 2026-11-11 — Keep identity and access as the opening epic instead of adding a platform-baseline epic now. No codebase or approved runtime, hosting, CI, or deployment target is established in the source material. The team must select and record that baseline before implementation starts.
+- Decision: 2026-11-11 — Keep identity and access as the opening epic instead of adding a platform-baseline epic now. Python backend and React frontend are the approved language direction; no codebase, frameworks, runtime versions, database, hosting, CI, or deployment target is established yet. Record the remaining baseline before implementation starts.

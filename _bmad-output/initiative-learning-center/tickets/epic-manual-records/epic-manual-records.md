@@ -8,7 +8,8 @@ sources:
   - _bmad-output/initiative-learning-center/initiative-learning-center.md
 companions:
   - _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md
-  - _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md
+  - _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
 after: ["epic-foundation-access"]
 risk: medium
 ---
@@ -51,7 +52,8 @@ An administrator can maintain valid, traceable learning information without maki
 
 - parent — _bmad-output/initiative-learning-center/initiative-learning-center.md, Requirements R3 and Constraints RULE-1/RULE-3
 - prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, FR-5, FR-6, glossary
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-1 and AD-5
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, AD-1, AD-5, AD-8, AD-9, and AD-10
+- experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md, Administration flow and Accessibility Floor
 
 ## Notes
 

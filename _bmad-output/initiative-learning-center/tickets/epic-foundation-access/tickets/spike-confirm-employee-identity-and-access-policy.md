@@ -40,7 +40,7 @@ Timebox: one structured decision review. If required owners cannot approve a dec
 
 - parent — _bmad-output/initiative-learning-center/tickets/epic-foundation-access/epic-foundation-access.md, Requirements and Constraints
 - initiative — _bmad-output/initiative-learning-center/initiative-learning-center.md, Constraints RULE-2 and RULE-5
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-3 and Open Questions
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, AD-3, AD-10, and Open Questions
 - experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md, Foundation and Key Flows
 
 ## Notes

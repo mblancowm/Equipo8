@@ -13,6 +13,7 @@ Use: source material for the draft brief, PRD, and initiative; this is not indep
 5. The product should automatically bring information from other systems into Learning Center.
 6. The team also wants people to be able to add information manually.
 7. A SharePoint folder named “AI Brownbag - Software” was shared as an example source.
+8. The team approved Python as the backend implementation language and React for the frontend; frameworks and versions were not selected.
 
 ## Evidence limits
 

@@ -125,7 +125,7 @@ Baselines and targets are open questions; no numeric target is invented here.
 
 ## Experience and platform
 
-Platform and language are not confirmed. The UX documents use a provisional internal-application flow and mark platform, English/Spanish localization, and design-system decisions as open.
+The team selected Python for backend implementation and React for the frontend; the binding architecture rule is recorded in AD-8 of the architecture spine. Frameworks, versions, browser/mobile scope, English/Spanish localization, and the design system remain open.
 
 ## Stakeholders, risks, and rollout
 
@@ -166,3 +166,4 @@ The product may contain employee-linked training and certification information. 
 - D-1: Employees are the primary audience and HR/learning administrators are also supported, based on the team's stated direction.
 - D-2: Automatic source imports and manual data entry are both desired capabilities.
 - D-3: The supplied SharePoint location is an example, not an approved or verified integration source.
+- D-4: Python backend and React frontend are the implementation-language direction; the architecture spine AD-8 is the shared technical decision, while frameworks and versions remain open.
