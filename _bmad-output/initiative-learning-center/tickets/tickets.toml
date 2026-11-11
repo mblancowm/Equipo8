@@ -1,0 +1,41 @@
+# Proposed epic order for the Learning Center initiative.
+# Draft only: epics must be reviewed and refined before any story is started.
+
+[[epic]]
+id = 1
+slug = "epic-foundation-access"
+title = "Employee identity and access"
+description = "Employees and learning administrators can access only the information and actions allowed by the approved role policy."
+covers = ["R2"]
+risk = "high"
+
+[[epic]]
+id = 2
+slug = "epic-manual-records"
+title = "Manual learning information management"
+description = "Authorized administrators can add and correct learning items and employee learning records with validation and provenance."
+covers = ["R3", "RULE-1", "RULE-3"]
+after = [{ epic = 1, needs = "the approved identity and administration roles" }]
+risk = "medium"
+
+[[epic]]
+id = 3
+slug = "epic-sharepoint-sync"
+title = "Approved source synchronization"
+description = "One approved SharePoint source can be synchronized repeatably, with visible health and preserved provenance."
+covers = ["R4", "R5", "RULE-4"]
+after = [{ epic = 2, needs = "the canonical record fields and field ownership rules" }]
+risk = "high"
+
+[[epic]]
+id = 4
+slug = "epic-employee-search"
+title = "Employee search and record discovery"
+description = "Employees can find approved manual and imported learning information through one authorized search experience."
+covers = ["R1", "R2"]
+after = [
+  { epic = 2, needs = "searchable manually managed records" },
+  { epic = 3, needs = "the approved source's normalized records" },
+  { epic = "epic-foundation-access", needs = "the approved identity and role policy required for personal-record access" }
+]
+risk = "medium"

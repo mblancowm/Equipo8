@@ -1,0 +1,37 @@
+[[entry]]
+id = 1
+type = "spike"
+title = "Agree learning item and employee record fields"
+description = "Define the minimum fields and source ownership for learning items and employee-specific completion or certification records."
+verify = "A field dictionary identifies required fields, optional fields, ownership, and unresolved items for both record types."
+covers = ["R1", "R3"]
+after = []
+hitl = true
+risk = "medium"
+refine = true
+
+[[entry]]
+id = 2
+type = "story"
+title = "Create and edit a learning item manually"
+description = "Allows an authorized administrator to enter and correct an approved learning item."
+verify = "An administrator saves a valid item, corrects it, and confirms it appears as manually maintained with attribution."
+covers = ["R1", "R2"]
+after = [1]
+hitl = true
+risk = "medium"
+refine = true
+unknown = "Which fields are required, and who may add or edit learning items?"
+
+[[entry]]
+id = 3
+type = "story"
+title = "Record an employee completion or certification"
+description = "Allows an authorized administrator to maintain an employee-linked learning record using the approved identity key and fields."
+verify = "An authorized administrator saves a valid employee record and the authorized employee can see it without exposing it to another employee."
+covers = ["R1", "R2"]
+after = [1, "1.2"]
+hitl = true
+risk = "high"
+refine = true
+unknown = "Which employee identifier, completion status, credential evidence, and expiration fields are required?"

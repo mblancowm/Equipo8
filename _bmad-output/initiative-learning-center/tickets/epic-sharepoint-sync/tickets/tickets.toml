@@ -1,0 +1,50 @@
+[[entry]]
+id = 1
+type = "spike"
+title = "Verify the candidate SharePoint source"
+description = "Confirm the folder contents, file formats, source owner, employee-data presence, permissions, and supported automated access."
+verify = "The source owner and IT provide an approved source map, permission decision, sample schema, and list of unsupported or unresolved cases."
+covers = ["R1", "R3"]
+after = []
+hitl = true
+risk = "high"
+refine = true
+
+[[entry]]
+id = 2
+type = "story"
+title = "Import approved SharePoint learning information"
+description = "Imports the agreed fields from the approved library and retains each source identifier and permitted link."
+verify = "A source owner-approved sample appears in Learning Center with its source reference and expected fields."
+covers = ["R1"]
+after = [1, "2.1"]
+hitl = true
+risk = "high"
+refine = true
+unknown = "Does the source contain in-scope structured information, and which automated permissions are approved?"
+
+[[entry]]
+id = 3
+type = "story"
+title = "Update imported records safely"
+description = "Applies approved source changes repeatably and handles retries, duplicate detection, and source removals according to the ownership policy."
+verify = "Repeated and changed sample imports produce the expected records without uncontrolled duplicates or silent data loss."
+covers = ["R2", "R4"]
+after = [2, "2.1"]
+hitl = true
+risk = "high"
+refine = true
+unknown = "How should source changes, deletions, and conflicts with manual edits be handled?"
+
+[[entry]]
+id = 4
+type = "story"
+title = "Show source synchronization health"
+description = "Provides administrators with last-success time, current status, and actionable import errors."
+verify = "An administrator can distinguish a successful, stale, and failed run and identify the next action."
+covers = ["R3", "R4"]
+after = [2]
+hitl = true
+risk = "medium"
+refine = true
+unknown = "What synchronization delay and recovery target should the pilot meet?"
