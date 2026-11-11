@@ -1,0 +1,84 @@
+next_id = 8
+
+[[entry]]
+id = 1
+type = "story"
+title = "Create the local application scaffold"
+description = "Creates the Django API, React SPA, and local PostgreSQL setup against the shared development contracts, using synthetic data only."
+verify = "A new contributor follows the documented clean-install steps, starts PostgreSQL, API, and SPA, then sees the SPA and a successful API health response through the local proxy."
+covers = ["R1"]
+after = []
+hitl = true
+risk = "medium"
+refine = true
+
+[[entry]]
+id = 2
+type = "spike"
+title = "Confirm employee identity and access policy"
+description = "Identify the approved sign-in provider, employee key, employee-record visibility rule, and learning-administrator permissions with Product Owner, IT/Identity, HR, and Security."
+verify = "The decision record names approved choices or unresolved choices, owners, and the tickets that must wait."
+covers = ["R1"]
+after = []
+hitl = true
+risk = "high"
+refine = true
+
+[[entry]]
+id = 3
+type = "spike"
+title = "Agree learning item fields"
+description = "Define the minimum learning-catalog fields, validation, source ownership, language, searchability, and visibility without deciding employee-specific record fields."
+verify = "Product Owner and HR/Learning approve a catalog field dictionary with type, requiredness, validation, owner/write path, language, visibility, searchable flag, and unresolved items."
+covers = ["R1"]
+after = []
+hitl = true
+risk = "medium"
+refine = true
+
+[[entry]]
+id = 4
+type = "spike"
+title = "Verify the candidate SharePoint source"
+description = "Confirm the candidate folder contents, file formats, source owner, employee-data presence, permissions, and supported automated access."
+verify = "The source owner and IT provide an approved source map, permission decision, sample schema, and list of unsupported or unresolved cases."
+covers = ["R1"]
+after = []
+hitl = true
+risk = "high"
+refine = true
+
+[[entry]]
+id = 5
+type = "spike"
+title = "Confirm approved CI and preview environment"
+description = "The repository owner and Operations identify the approved CI provider, non-production target, required checks, secret handling, and deployment owner after the local scaffold exists."
+verify = "A decision record names the approved CI and preview target, or lists each unresolved approval and its owner without selecting a provider by assumption."
+covers = ["R1"]
+after = [1]
+hitl = true
+risk = "high"
+
+[[entry]]
+id = 6
+type = "story"
+title = "Configure the approved CI and preview path"
+description = "Adds the approved repository checks and non-production deployment path after repository and Operations owners settle their requirements."
+verify = "The approved checks run against the application baseline and an authorized non-production deployment is manually verified."
+covers = ["R1"]
+after = [5]
+hitl = true
+risk = "high"
+
+[[entry]]
+id = 7
+type = "story"
+title = "Create the canonical learning-item schema"
+description = "After ticket 5.3 approves the catalog dictionary and ticket 5.1 provides the local scaffold, create one shared Django LearningItem model and migration for manual and imported catalog records."
+verify = "The model and migration include only approved catalog fields and shared provenance metadata; the manual-entry and source-import tickets reference this same model without defining duplicate schemas."
+covers = ["R2"]
+after = ["5.1", "5.3"]
+hitl = false
+risk = "medium"
+refine = false
+unknown = "Which catalog fields and ownership decisions did ticket 5.3 approve?"

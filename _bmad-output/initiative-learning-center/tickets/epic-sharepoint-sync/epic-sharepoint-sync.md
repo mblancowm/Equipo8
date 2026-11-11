@@ -7,10 +7,11 @@ covers: ["R4", "R5"]
 sources:
   - _bmad-output/initiative-learning-center/initiative-learning-center.md
 companions:
-  - _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md
   - _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
   - _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md
-after: ["epic-manual-records"]
+after: ["epic-application-foundation", "epic-foundation-access"]
 risk: high
 ---
 
@@ -42,6 +43,7 @@ Employees can find approved information from the pilot source in Learning Center
 
 - A source owner approves the exact library, content types, identity, and integration permissions.
 - The connector imports agreed records and preserves source identifiers and links.
+- Each imported item retains its source update timestamp when available and its own last successful `last_synced_at`; synchronization-run history separately records run start, finish, counts, and errors.
 - Re-running synchronization does not create uncontrolled duplicates.
 - Administrators can see success time, failure reason, and retry state.
 - The last good state remains available when a source is unavailable.
@@ -57,10 +59,12 @@ Employees can find approved information from the pilot source in Learning Center
 
 - parent — _bmad-output/initiative-learning-center/initiative-learning-center.md, Requirements R4/R5 and Constraint RULE-4
 - prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, FR-7 to FR-9 and OQ-1/OQ-4/OQ-8
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, AD-1, AD-2, AD-4, AD-5, AD-7, AD-8, AD-9, and AD-10
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-1, AD-2, AD-4, AD-5, AD-7, AD-8, AD-9, and AD-10
+- contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Record ownership and source synchronization lifecycle
 - experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md, Synchronization health and Accessibility Floor
 
 ## Notes
 
 - Assumption: SharePoint may be selected as the pilot source if its owner authorizes access and the content is suitable.
 - Open question: folder contents, file types, permissions, update semantics, and conflict rules remain unknown.
+- Open question: Operations must approve the production target and support model before this epic can be marked done.

@@ -7,9 +7,10 @@ covers: ["R2"]
 sources:
   - _bmad-output/initiative-learning-center/initiative-learning-center.md
 companions:
-  - _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md
   - _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-after: []
+  - _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md
+after: ["epic-application-foundation"]
 risk: high
 ---
 
@@ -51,9 +52,11 @@ Employees can use Learning Center without seeing another employee's personal rec
 ## References
 
 - parent — _bmad-output/initiative-learning-center/initiative-learning-center.md, Requirements R2 and Constraints RULE-2/RULE-5
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, AD-3, AD-8, AD-9, and AD-10
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-3, AD-8, AD-9, and AD-10
+- contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Identity and authorization boundary
 - experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md, Foundation and Accessibility Floor
 
 ## Notes
 
 - Open question: identity provider, employee key, and role owner must be confirmed before implementation.
+- Open question: Operations must approve hosting, deployment, rollback, and production support before this epic can be marked done.

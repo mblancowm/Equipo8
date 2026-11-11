@@ -15,6 +15,10 @@ Use: source material for the draft brief, PRD, and initiative; this is not indep
 7. A SharePoint folder named “AI Brownbag - Software” was shared as an example source.
 8. The team approved Python as the backend implementation language and React for the frontend; frameworks and versions were not selected.
 
+## Team setup request
+
+- TEAM-1 — On 2026-11-11, the user asked to make the project ready so all four people on the team can work in parallel.
+
 ## Evidence limits
 
 - The current process, its cost, and employee search behavior have not been measured.

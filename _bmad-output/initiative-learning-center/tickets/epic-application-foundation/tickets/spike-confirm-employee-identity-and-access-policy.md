@@ -1,9 +1,9 @@
 ---
-id: 1
+id: 2
 type: spike
 title: "Confirm employee identity and access policy"
-parent: epic-foundation-access
-covers: [R1, R2]
+parent: epic-application-foundation
+covers: [R1]
 after: []
 refined: true
 hitl: true
@@ -38,9 +38,10 @@ Timebox: one structured decision review. If required owners cannot approve a dec
 
 ## References
 
-- parent — _bmad-output/initiative-learning-center/tickets/epic-foundation-access/epic-foundation-access.md, Requirements and Constraints
-- initiative — _bmad-output/initiative-learning-center/initiative-learning-center.md, Constraints RULE-2 and RULE-5
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, AD-3, AD-10, and Open Questions
+- parent — _bmad-output/initiative-learning-center/tickets/epic-application-foundation/epic-application-foundation.md
+- initiative — _bmad-output/initiative-learning-center/initiative-learning-center.md, Constraint RULE-6 and release gate RULE-5
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-3, AD-10, and Open Questions
+- contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Identity and authorization boundary
 - experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md, Foundation and Key Flows
 
 ## Notes

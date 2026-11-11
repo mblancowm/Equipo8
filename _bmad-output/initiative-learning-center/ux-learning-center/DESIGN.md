@@ -25,7 +25,7 @@ Unset pending the design system. Use readable hierarchy for page title, search q
 
 ## Layout & Spacing
 
-The employee search and result content should receive the main visual emphasis. Administrative controls should be visually distinct from employee discovery. Layout and responsive breakpoints are open until the platform is selected.
+The employee search and result content should receive the main visual emphasis. Administrative controls should be visually distinct from employee discovery. Use a responsive browser layout for the selected SPA; exact breakpoints and visual tokens follow the organization's design system when it is provided. A separate native mobile application is out of scope.
 
 ## Elevation & Depth
 

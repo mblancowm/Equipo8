@@ -1,24 +1,13 @@
-[[entry]]
-id = 1
-type = "spike"
-title = "Confirm employee identity and access policy"
-description = "Identify the approved sign-in provider, employee key, employee-record visibility rule, and learning-administrator permissions."
-verify = "Product Owner, IT/Identity, HR, and Security record an approved identity and role decision with unresolved items named."
-covers = ["R1", "R2"]
-after = []
-hitl = true
-risk = "high"
-refine = true
+next_id = 3
 
 [[entry]]
 id = 2
 type = "story"
 title = "Enforce employee and administrator access"
-description = "Applies the approved identity and role policy to employee records and administration actions."
-verify = "A reviewer demonstrates permitted self-access and admin actions, and denied access to another employee's record."
+description = "Applies the approved identity and role policy to employee records and administration actions after the local application scaffold exists."
+verify = "A reviewer demonstrates permitted self-access and admin actions, and denied access to another employee's record, using approved non-production fixtures."
 covers = ["R1", "R2"]
-after = [1]
+after = ["5.2", "5.1"]
 hitl = true
 risk = "high"
 refine = true
-unknown = "Which identity provider, employee key, and role policy are approved?"

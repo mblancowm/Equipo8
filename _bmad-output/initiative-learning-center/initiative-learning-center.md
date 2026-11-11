@@ -9,7 +9,8 @@ sources:
 companions:
   - _bmad-output/initiative-learning-center/ux-learning-center/DESIGN.md
   - _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-  - _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md
 after: []
 risk: high
 ---
@@ -39,6 +40,7 @@ Employees can find relevant learning information and administrators can keep it 
 - RULE-3 (PRD RULE-3): Field ownership and conflict behavior are defined before a field is both imported and manually editable.
 - RULE-4 (PRD RULE-4): Import failures are visible and do not silently erase the last good state.
 - RULE-5 (PRD Q-2): Production use waits for organizational approval of data classification, access, retention, and regional handling.
+- RULE-6 (TEAM-1): The team uses a reproducible local baseline and shared contracts so four contributors can work independently.
 
 ## Done when
 
@@ -48,6 +50,7 @@ Employees can find relevant learning information and administrators can keep it 
 - Search and details enforce the same approved access rules.
 - The team has measured a baseline and agreed on success targets before evaluating a production pilot.
 - Security, privacy, source-owner, and product-owner launch gates are recorded and approved.
+- Four team members can begin from one reproducible local baseline and shared contracts without waiting on each other's discovery tickets.
 
 ## Boundaries
 
@@ -64,12 +67,14 @@ Employees can find relevant learning information and administrators can keep it 
 - source — _bmad-output/initiative-learning-center/sources/user-discovery-notes.md, Statements provided
 - design — _bmad-output/initiative-learning-center/ux-learning-center/DESIGN.md
 - experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, Decisions
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, Decisions
+- contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, API, identity, data, synchronization, and locale/search
 
 ## Notes
 
 - Assumption: the first release supports a central learning catalog and employee-linked records; the exact record types are not confirmed.
 - Assumption: a learning administrator can enter and correct records manually.
 - Open question: the source-system inventory and the contents of the example SharePoint folder are unknown; the SharePoint epic begins with a discovery spike.
-- Open question: identity, access, retention, language, and numeric success targets must be resolved before production.
-- Decision: 2026-11-11 — Keep identity and access as the opening epic instead of adding a platform-baseline epic now. Python backend and React frontend are the approved language direction; no codebase, frameworks, runtime versions, database, hosting, CI, or deployment target is established yet. Record the remaining baseline before implementation starts.
+- Open question: identity, access, retention, regional handling, source permissions, operations, and numeric success targets must be resolved before production or real employee data is used.
+- Open question: the MVP record types and measurable search, freshness, and recovery targets still need Product Owner, employee, source-owner, and operations decisions.
+- Decision: 2026-11-11 — Put the application-foundation epic first in build order, then keep identity, catalog-field, and source-verification discovery independent. The selected development baseline is recorded in architecture AD-11; this does not approve production identity, data use, hosting, or source permissions.

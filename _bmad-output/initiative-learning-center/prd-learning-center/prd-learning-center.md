@@ -119,13 +119,13 @@ Baselines and targets are open questions; no numeric target is invented here.
 - Q-1 Security: enforce access control on the server for every employee-specific record; do not rely on hiding UI elements as authorization.
 - Q-2 Privacy: use the minimum approved employee data needed to match and display records. Data residency, retention, and regional requirements require organizational review before production.
 - Q-3 Reliability: synchronization is observable, retryable, and idempotent; source failures must not hide the last good state.
-- Q-4 Accessibility: core search, result, and administration flows must be usable with keyboard navigation and assistive technology. The organization must select the applicable conformance target.
+- Q-4 Accessibility: core search, result, and administration flows target WCAG 2.2 Level AA, including keyboard access, semantic labels, visible focus, announcements for changing results and validation, and status cues that do not rely on color.
 - Q-5 Performance: the team must set measurable search and synchronization targets after source volume and user expectations are known.
 - Q-6 Auditability: record changes and import outcomes are attributable to a user or source process with timestamps.
 
 ## Experience and platform
 
-The team selected Python for backend implementation and React for the frontend; the binding architecture rule is recorded in AD-8 of the architecture spine. Frameworks, versions, browser/mobile scope, English/Spanish localization, and the design system remain open.
+The selected development baseline is an internal browser SPA using React Router and a Django REST API with PostgreSQL. Exact versions, dependency management, local routing, API payloads, and shared identity/data/search contracts are recorded in architecture AD-11 and shared-contracts.md. The corporate design system and production hosting/operations remain open.
 
 ## Stakeholders, risks, and rollout
 
@@ -156,7 +156,6 @@ The product may contain employee-linked training and certification information. 
 - OQ-3 — HR/Learning administrator: Which fields define a learning item and a completion or certification record? Needed before manual entry and deduplication.
 - OQ-4 — HR and source owners: Which system owns each field, and how are manual edits reconciled with imports? Needed before synchronization writes.
 - OQ-5 — Security/Privacy: Which roles may view or edit which employee records, and what retention or regional handling rules apply? Needed before production data is loaded.
-- OQ-6 — Product Owner: Must the app support English, Spanish, or both in the first release? Needed before UX is finalized.
 - OQ-7 — Product Owner: What baseline and target make search measurably easier? Needed before pilot success can be judged.
 - OQ-8 — IT/source owner: What synchronization delay and failure recovery are acceptable? Needed before source integration acceptance.
 - OQ-9 — Product Owner: Is course discovery, personal completion history, certification validity/expiry, or all three in the first release? Needed before the first epic is refined.
@@ -166,4 +165,5 @@ The product may contain employee-linked training and certification information. 
 - D-1: Employees are the primary audience and HR/learning administrators are also supported, based on the team's stated direction.
 - D-2: Automatic source imports and manual data entry are both desired capabilities.
 - D-3: The supplied SharePoint location is an example, not an approved or verified integration source.
-- D-4: Python backend and React frontend are the implementation-language direction; the architecture spine AD-8 is the shared technical decision, while frameworks and versions remain open.
+- D-4: The delegated development baseline is Django REST with Python, React Router SPA, and PostgreSQL; architecture AD-11 records versions, local proxy, package managers, and lockfiles.
+- D-5: The UI supports English and Spanish with a visible user-selected locale and targets WCAG 2.2 Level AA. Source text is not automatically translated; shared-contracts.md records locale and search behavior.

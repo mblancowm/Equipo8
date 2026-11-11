@@ -1,45 +1,54 @@
-# Learning Center — BMad planning package
+# Learning Center — team start
 
-Status: draft for team review\
-Created: 2026-11-11\
-Method: BMad Method 7 artifact structure
+Status: development decisions recorded; application code has not been scaffolded.
+Updated: 2026-11-11
 
-## What is in this package
+## What is settled for development
 
-- Product brief: why the team proposes Learning Center.
-- PRD: product outcomes, user journeys, requirements, risks, and open questions.
-- UX contracts: DESIGN.md for visual direction and EXPERIENCE.md for behavior.
-- Architecture spine: the approved Python backend and React frontend direction plus the cross-epic rules that keep the product consistent.
-- Initiative ticket and four proposed epics with candidate story entries.
-- User discovery notes: a traceable record of statements supplied so far.
+- One repository with a Django REST API, a React Router SPA, and PostgreSQL.
+- Selected versions and dependency-lock decisions live in the architecture spine.
+- The API, local proxy, identity boundary, record ownership, source-run lifecycle, and bilingual-search rules live in architecture-learning-center/shared-contracts.md.
+- The UI has English and Spanish locale support and targets WCAG 2.2 Level AA.
+- Local development uses synthetic identities and data only.
 
-## Confirmed by the user
+## First four work packets
 
-- The product is called Learning Center.
-- It is intended to bring employee training and certifications in the United States and Costa Rica into one place and make information easier to find.
-- Employees are the primary audience; HR or learning administrators also need to use it.
-- The product should automatically bring in information from other systems and allow people on the team to add information manually.
-- A SharePoint folder is an example of a possible source. Its contents and integration permissions have not been verified.
-- Python is the backend language direction and React is the frontend direction; specific frameworks and versions remain open.
+Choose one person for each packet. All four are ready to start in parallel:
 
-## Draft assumptions
+| Person | Ticket | First output |
+| --- | --- | --- |
+| Developer A | 5.1 — local application scaffold | One documented local start path for the SPA, API, and PostgreSQL |
+| Developer B | 5.2 — identity and access policy | Approved identity key, role matrix, and named production-data gates |
+| Developer C | 5.3 — learning catalog field dictionary | Approved learning-item fields, ownership, validation, and search metadata |
+| Developer D | 5.4 — candidate SharePoint verification | Source map, sample schema, permission decision, and unsupported cases |
 
-- The first version is an internal employee-facing application with a separate administration flow.
-- The product will search both learning opportunities and employee-specific completion or certification records. The exact record types remain unconfirmed.
-- A first integration will connect to one approved SharePoint library, if the library contains in-scope data and the organization authorizes access.
-- Manual entries will be managed by an authorized learning administrator.
-- Source links and provenance should be retained so employees and administrators can understand where a record came from.
+The application-foundation epic is first in build order. Tickets 5.1, 5.2, 5.3, and 5.4 have no prerequisites and can start in parallel. Once 5.1 and 5.3 finish, ticket 5.7 creates the one canonical LearningItem schema used by manual-entry story 2.2 and source-import story 3.2.
 
-## Not decided
+## How the team starts
 
-The organization has not yet confirmed source systems, supported file formats, identity provider, employee identifier, field ownership, synchronization frequency, regional data rules, retention, English/Spanish localization, design system, Python/React frameworks and versions, database, hosting, numeric success targets, or launch date. The documents mark these as open questions rather than settled facts.
+1. Map Developers A–D to the four people and put the names in the ticket tracker or the team start guide.
+2. Work one ticket per branch. Use a short branch name such as codex/learning-center-5-1-scaffold; have a different team member review the change before merge.
+3. Read the ticket and its linked contracts before changing API, record, identity, or source behavior.
+4. Record a shared decision in the architecture spine or shared-contracts.md, then update affected tickets before coding against the changed contract.
+5. Use synthetic fixtures only until the access and data approvals listed in TEAM-START-HERE.md are recorded.
 
-## BMad execution note
+These branch and peer-review rules are this kickoff's team convention. The repository has no configured branch protection, pull-request template, CI, or merge policy yet.
 
-Sofia's renderer ran successfully with the system Python after `uv run --no-cache` could not reach PyPI for Jinja2. The initiative tree passed its Tree and Dependencies checks with no undeclared or conflicting dependencies. The identity/access spike (1.1) is refined and passed its Ticket check; the other 11 entries remain gated by dependencies or unresolved decisions.
+## Current commands
 
-The architecture spine records Python backend and React frontend as the approved language direction. Frameworks, versions, database, identity provider, hosting, CI, and deployment remain open. No implementation, legal assessment, source-system audit, user research, or production integration was performed. The SharePoint folder contents remain unverified.
+The application does not have backend/frontend manifests or runnable commands yet. Ticket 5.1 must create lockfiles and document the exact startup and smoke-check commands before the team relies on them.
 
-## Recommended next step
+To see the current ready tickets:
 
-Run the refined identity/access spike with the Product Owner, IT/Identity, HR/Learning, and Security/Privacy, then record the approved policy under architecture AD-3. Next, resolve the learning-record fields and verify the candidate SharePoint source before refining dependent stories. A BRD, business case, PRFAQ, and launch plan were not added because the available information does not establish a separate contracting party, funding decision, concept-validation study, or launch date.
+    uv run _bmad/method/scripts/tickets.py --project-root . next
+
+## Planning package
+
+- Team kickoff and remaining approvals: TEAM-START-HERE.md
+- Initiative and ticket backlog: initiative-learning-center.md and tickets/
+- Product requirements: prd-learning-center/prd-learning-center.md
+- UX contracts: ux-learning-center/DESIGN.md and ux-learning-center/EXPERIENCE.md
+- Architecture decisions: architecture-learning-center/architecture-learning-center.md
+- Cross-developer API, identity, data, synchronization, and locale/search contract: architecture-learning-center/shared-contracts.md
+
+No sprint dates or estimates are set because the team did not provide a sprint cadence or individual availability.

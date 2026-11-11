@@ -1,38 +1,37 @@
-# Technology Review — Learning Center Architecture Spine
+# Technology review — follow-up on the development baseline
 
-**Review date:** 2026-11-11\
-**Lens:** BMad Architecture technology freshness and fit\
-**Scope:** Current AD-8, related stack deferrals, and the implementation gate. No product document changes.
+Date: 2026-11-11
 
-## Verdict
+## Current verdict
 
-**Pass with a medium follow-up before implementation.** AD-8's adopted Python-backend and React-frontend direction remains accurate and suitable at the stated level. No language, framework, build-tool, or runtime versions are pinned, so no version staleness is present. The spine explicitly defers framework/build-tool decisions and asks which to use; keep those choices gated before implementation. Current React guidance recommends a framework for a new full React application and notes that routing and data fetching need deliberate solutions.
+**Pass for the planning baseline.** The prior review's version and reproducibility findings have been resolved in the architecture and scaffold ticket. The opening story still needs to install and verify its actual dependency lockfiles; no application package manifests exist yet.
 
-## Finding
+## Selected baseline
 
-### Medium — Resolve framework/build-tool choices at the implementation baseline
+| Area | Current decision |
+| --- | --- |
+| Backend | Python 3.14.10, Django 5.2.19 LTS, Django REST framework 3.18.3 |
+| Storage | PostgreSQL 18.6 through local Compose |
+| Frontend | Node.js 26.13.1 LTS, React 19.3.0, React Router 8.5.1 Framework Mode SPA, Vite 8.3.8 |
+| Tooling | uv 0.13.2 with uv.lock; npm with package-lock.json |
 
-Python is a reasonable language for the described application service and synchronization worker; Python.org documents web-development frameworks and Internet protocol support. React remains an appropriate UI library for the employee and administrator interfaces. AD-8 correctly binds only the backend and frontend languages/libraries, not complete frameworks.
+## Resolved findings from the first review
 
-The spine's Deferred list includes Python/React frameworks, runtime versions, and starter/build tools, and Open Questions asks which frameworks and build tool to use. This is a suitable initiative-level deferral. Before implementation, select the Python backend framework/runtime and a coherent React framework/build approach, including routing and data-fetching ownership. The current React documentation recommends a framework for a new application; if the team chooses build tools without a framework, it should deliberately own the corresponding common app patterns.
+- Vite was updated to 8.3.8, the official release dated 2026-11-11.
+- Node.js 26.13.1 was selected as the current Active LTS release. The scaffold ticket pins it in `.nvmrc`; Python 3.14.10 is pinned in `.python-version`.
+- uv 0.13.2 is selected and enforced with `tool.uv.required-version`.
+- Vite binds to `127.0.0.1` by default; the scaffold ticket prohibits network exposure and checks direct refresh of a nested SPA route.
 
-**Disposition:** Preserve the current spine boundary; close the technology baseline before implementation begins.
+## Remaining verification
 
-## Approval, fit, and freshness
+Ticket 5.1 must create the manifests and resolve actual package versions into committed lockfiles. A clean install, local database/API/SPA start, proxy, health route, and nested-route refresh must be checked manually before dependent implementation begins. This planning review did not run application tests or validate a running application.
 
-- **Approval:** AD-8 is marked **[ADOPTED]** and states the team approved Python for backend implementation and React for frontend components. The initiative README confirms the same direction.
-- **Fit:** Python supports the planned server-side application and integration work; React's component UI model fits the employee/admin screens. No evidence in the spine suggests a mismatch.
-- **Freshness:** No versions are pinned, so there is nothing to flag as outdated. Check Python's official support schedule and current React recommendations when versions/tools are selected.
-- **Repository baseline:** The spine says no repository implementation, framework, runtime, or deployment target was available; this review makes no codebase compatibility claim.
+## Primary sources checked
 
-## Official sources
-
-- Python.org, [Applications for Python](https://www.python.org/about/apps/): web-development choices and standard-library Internet protocol support.
-- React, [React](https://react.dev/): current description of React and its application-level boundaries.
-- React, [Creating a React App](https://react.dev/learn/creating-a-react-app): current recommendation to start a new React application with a framework.
-- React, [Build a React app from scratch](https://react.dev/learn/build-a-react-app-from-scratch): responsibilities and tradeoffs when building without a framework.
-- Python Developer's Guide, [Status of Python versions](https://devguide.python.org/versions/): official lifecycle to consult when selecting a runtime.
-
-## Review boundary
-
-This is only the technology freshness/fit lens, not a full architecture review.
+- [Django 5.2 release notes](https://docs.djangoproject.com/en/5.2/releases/5.2/) and [Django 5.2.19 security release](https://docs.djangoproject.com/en/6.1/releases/5.2.19/)
+- [Django REST framework release notes](https://www.django-rest-framework.org/community/release-notes/)
+- [React versions](https://react.dev/versions) and [React Router SPA mode](https://reactrouter.com/how-to/spa)
+- [Node.js 26.13.1 release](https://nodejs.org/en/blog/release/v26.13.1) and [Node.js release schedule](https://github.com/nodejs/Release)
+- [Vite 8.3.8 release](https://github.com/vitejs/vite/releases/tag/v8.3.8), [Vite Node requirements](https://vite.dev/guide/), and [Vite dev-server security advisory](https://github.com/vitejs/vite/security/advisories/GHSA-p4f5-76q4-ffq7)
+- [uv 0.13.2 release](https://github.com/astral-sh/uv/releases/tag/0.13.2) and [uv required-version setting](https://docs.astral.sh/uv/reference/settings/#required-version)
+- [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) and [official PostgreSQL Docker image tags](https://hub.docker.com/_/postgres)

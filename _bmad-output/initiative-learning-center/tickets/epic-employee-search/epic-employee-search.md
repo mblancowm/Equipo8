@@ -9,8 +9,9 @@ sources:
 companions:
   - _bmad-output/initiative-learning-center/ux-learning-center/DESIGN.md
   - _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-  - _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md
-after: ["epic-manual-records", "epic-sharepoint-sync"]
+  - _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md
+  - _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md
+after: ["epic-foundation-access", "epic-manual-records", "epic-sharepoint-sync"]
 risk: medium
 ---
 
@@ -56,9 +57,12 @@ Employees can find relevant learning information without searching each approved
 - prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, UJ-1, FR-1 to FR-4, SM-1
 - design — _bmad-output/initiative-learning-center/ux-learning-center/DESIGN.md
 - experience — _bmad-output/initiative-learning-center/ux-learning-center/EXPERIENCE.md
-- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/ARCHITECTURE-SPINE.md, AD-1, AD-3, AD-6, AD-7, AD-8, AD-9, and AD-10
+- architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-1, AD-3, AD-6, AD-7, AD-8, AD-9, and AD-10
+- contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, API, authorization, and locale/search
 
 ## Notes
 
+- Decision: 2026-11-11 — The access epic owns identity matching, the approved policy, and server-side role enforcement; this epic owns employee-facing search, filters, and details that apply that policy. This is the split for shared initiative requirement R2.
 - Assumption: employees need both discovery of learning items and access to their own completion or certification records.
 - Open question: which fields users need to search and filter, and which personal record types belong in the first release.
+- Open question: Operations must approve the production target and support model before this epic can be marked done.

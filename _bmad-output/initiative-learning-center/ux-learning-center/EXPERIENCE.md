@@ -7,10 +7,10 @@ updated: 2026-11-11
 
 # Foundation
 
-- Form factor: open question. Planning assumes a browser-accessible internal application; this is not a platform decision.
+- Form factor: internal browser application, delivered as a responsive React single-page app.
 - Visual identity: see DESIGN.md.
 - User roles: employee and learning administrator are confirmed audience categories; exact permissions are open.
-- Language: English, Spanish, or both is open.
+- Language: English and Spanish interface text, with a visible locale selector. Remember an explicit choice locally; otherwise start from the browser preference and fall back to English.
 
 # Information Architecture
 
@@ -20,7 +20,7 @@ updated: 2026-11-11
 4. My learning records, if personal history is confirmed in MVP.
 5. Administration area for manual entry, corrections, and source status.
 
-Navigation labels and whether these areas are tabs, routes, or pages remain platform decisions.
+Use browser routes for these areas. Exact navigation labels and whether a surface appears in the first release depend on the approved MVP scope.
 
 # Voice and Tone
 
@@ -46,6 +46,13 @@ Use plain, neutral language. State what is known, where it came from, and when i
 - Sync failure: retain the last good imported state and show the latest failure to administrators.
 - Duplicate warning: identify the likely matching record without silently merging it.
 
+# Locale and Search
+
+- UI locale values are en and es. A user-selected interface locale changes labels and system messages only; it does not silently filter search results.
+- Keep source text in its original language and do not machine-translate imported records.
+- Catalog search must find matching English and Spanish text. Use source-language metadata when available; the learning-item field dictionary records whether a field is searchable and its language behavior.
+- Display dates and times in the selected UI locale; store and exchange timestamps in UTC.
+
 # Interaction Primitives
 
 - Keyboard access to search, filters, result links, forms, and dialogs.
@@ -56,13 +63,13 @@ Use plain, neutral language. State what is known, where it came from, and when i
 
 # Accessibility Floor
 
-The selected UI system must support keyboard navigation, semantic labels, visible focus, screen-reader announcements for result and error changes, and status cues that do not depend on color. The organization must confirm its formal accessibility target before release.
+Target WCAG 2.2 Level AA. Support keyboard navigation, semantic labels, visible focus, screen-reader announcements for result and error changes, and status cues that do not depend on color.
 
 # Key Flows
 
 ## Employee searches
 
-An employee opens Learning Center, enters a query, narrows results, and opens a result. The result identifies its type and source. If it is a personal record, the employee sees it only after identity and access checks succeed.
+An employee opens Learning Center, selects English or Spanish, enters a query, narrows results, and opens a result. The result identifies its type and source. Search uses source text as stored and does not change behavior solely because the UI locale changed. If it is a personal record, the employee sees it only after identity and access checks succeed.
 
 ## Administrator adds information
 
@@ -74,8 +81,7 @@ An administrator selects a configured source, sees last successful sync and curr
 
 # Open UX Questions
 
-- Confirm browser, mobile, or other platform scope.
-- Confirm English and Spanish requirements.
 - Confirm whether personal records and an employee profile are in the MVP.
 - Confirm exact fields and permitted actions for each role.
-- Identify the existing design system and accessibility target.
+- Identify the existing design system.
+- Confirm which result types and filters the source-approved MVP includes.
