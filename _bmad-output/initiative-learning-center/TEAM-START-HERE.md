@@ -1,22 +1,24 @@
 # Learning Center — guía para arrancar con cuatro personas
 
-Actualizado: 2026-11-11. La rama de preparación deja cuatro tickets iniciales listos. Todavía no existe código de aplicación.
+Actualizado: 2026-11-16. Tres tickets iniciales de descubrimiento están listos; el ticket de scaffold 5.1 está actualizado al stack de la empresa y espera que Producto e Ingeniería confirmen sus supuestos. Todavía no existe código de aplicación.
 
 ## Decisiones de desarrollo
 
-1. Monorepo con backend Python/Django REST, frontend React Router SPA y PostgreSQL. Las versiones exactas están en la arquitectura.
-2. Dependencias bloqueadas con uv.lock y package-lock.json. PostgreSQL local se levanta con Docker Compose.
-3. La SPA llama rutas relativas bajo /api/v1. Vite las redirige al backend en desarrollo; la configuración de producción se define cuando el dueño de plataforma apruebe el destino.
-4. API: respuestas de recurso en JSON; colecciones paginadas con count, next, previous y results; validación por campo como lista de mensajes; errores generales con detail y códigos HTTP semánticos.
+1. `apps/web`: React con TypeScript estricto, Vike (`vike-react`) y Tailwind CSS. [SUPUESTO] Se conserva el modo SPA existente.
+2. `apps/api`: Bun con Hono. `apps/api/src/db`: Drizzle ORM con SQLite local. `packages/contracts`: esquemas Zod compartidos y validados en tiempo de ejecución por web y API.
+3. La web llama rutas relativas bajo `/api/v1`; Vike/Vite las redirige a Hono en desarrollo. Producción y base de datos de producción esperan decisión de sus responsables.
+4. API: respuestas JSON; colecciones paginadas con count, next, previous y results; validación por campo como lista de mensajes; errores generales con detail y códigos HTTP semánticos. Zod valida contratos, pero la autorización siempre se comprueba en la API.
 5. UI en English/Español, preferencia seleccionable. El idioma de interfaz no filtra la búsqueda ni modifica el texto de origen. No hay traducción automática.
-6. Meta de accesibilidad: WCAG 2.2 AA.
-7. Los datos e identidades locales son sintéticos. La autenticación real, el identificador de empleado y la matriz de roles esperan decisión organizacional.
+6. Búsqueda local: SQLite FTS5, sin stemming específico para español. [SUPUESTO] El Product Owner debe confirmar ejemplos de búsqueda antes de implementar el ticket de búsqueda.
+7. Meta de accesibilidad: WCAG 2.2 AA. Los datos e identidades locales son sintéticos; autenticación real, identificador de empleado y matriz de roles esperan decisión organizacional.
+
+> Los criterios de 5.1 y el índice `tickets.toml` se alinearon con el stack nuevo. El ticket quedó sin refinamiento hasta que Producto acepte el modo SPA y el equipo de Ingeniería confirme el workspace Bun y cómo verificará FTS5 en los sistemas soportados. Producto también debe aprobar ejemplos de búsqueda antes de implementar búsqueda; el scaffold solo comprueba que FTS5 esté disponible.
 
 ## Reparto inicial
 
 | Ranura | Ticket | Responsable de coordinar | Entrega |
 | --- | --- | --- | --- |
-| Developer A | 5.1 | Persona que toma la base local | Inicio reproducible del frontend, API y PostgreSQL; lockfiles y comandos documentados |
+| Developer A | 5.1 | Persona que toma la base local | Inicio reproducible de web/API/contratos y SQLite; lockfile y comandos documentados |
 | Developer B | 5.2 | Persona que coordina con IT/Identity, HR y Security | Proveedor, llave de empleado, matriz de acceso, denegaciones y aprobaciones pendientes |
 | Developer C | 5.3 | Persona que coordina con Product Owner y HR/Learning | Diccionario aprobado de campos de Learning Item con dueño, validación y búsqueda |
 | Developer D | 5.4 | Persona que coordina con SharePoint owner e IT | Biblioteca, contenido, permisos, acceso automatizado, esquema de muestra y casos no soportados |
@@ -26,8 +28,8 @@ Cada persona toma una ranura y registra su nombre en el rastreador que use el eq
 ## Orden para comenzar
 
 1. Abrir esta guía, el ticket asignado y los contratos enlazados.
-2. Empezar los cuatro tickets en paralelo. No hay dependencia entre 5.1, 5.2, 5.3 y 5.4.
-3. Developer A crea solo la base local; usa datos sintéticos y no integra identidad corporativa ni conecta SharePoint.
+2. Empezar 5.2, 5.3 y 5.4 en paralelo. Refinar 5.1 con Producto e Ingeniería antes de iniciar su implementación; quien lo tome verifica FTS5 en los sistemas soportados.
+3. Una vez refinado, Developer A crea solo la base local; usa datos sintéticos y no integra identidad corporativa ni conecta SharePoint.
 4. Developers B, C y D llevan las decisiones a sus dueños de negocio/IT y anotan aprobaciones, decisiones abiertas, evidencia y fecha en el artefacto del ticket.
 5. Cuando 5.1 y 5.3 estén listos, tomar 5.7 para crear el único modelo LearningItem. Los tickets 2.2 y 3.2 esperan ese contrato; no creen modelos duplicados.
 6. Revisar los resultados de discovery y el scaffold. Después elegir el siguiente ticket con el tablero BMad.

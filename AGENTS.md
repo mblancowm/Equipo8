@@ -1,9 +1,9 @@
 <!-- bmad:context -->
-<!-- Verified 2026-11-11 against 92909a5. Managed by bmad-project-context; edits inside this block are replaced on refresh. -->
+<!-- Verified 2026-11-16 against 53519e9. Managed by bmad-project-context; edits inside this block are replaced on refresh. -->
 
 ## Equipo8 — Learning Center
 
-Learning Center is a planned internal learning and certification application. Its selected development baseline is Python/Django REST, React Router SPA, and PostgreSQL. Planning lives in _bmad-output/initiative-learning-center/; cross-epic rules are in its architecture spine and shared-contracts.md.
+Learning Center is a planned internal learning and certification application. Its company-standard development baseline is React with strict TypeScript, Vike (`vike-react`), and Tailwind CSS in `apps/web`; Bun with Hono in `apps/api`; Drizzle ORM with SQLite for zero-configuration local storage in `apps/api/src/db`; and shared Zod schemas in `packages/contracts`. Production database, hosting, and identity remain decisions for their organizational owners. Planning lives in _bmad-output/initiative-learning-center/; cross-epic rules are in its architecture spine and shared-contracts.md.
 
 ## Policy
 
