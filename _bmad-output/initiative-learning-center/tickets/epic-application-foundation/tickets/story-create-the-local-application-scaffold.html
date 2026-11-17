@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>5.1 · Create the local application scaffold</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17211f;background:#f4f6f3;font-synthesis:none;text-rendering:optimizeLegibility;--ink:#17211f;--muted:#64716c;--line:#dce3dd;--paper:#fff;--green:#176b51;--green-soft:#e6f3ed;--amber:#946200;--amber-soft:#fff3d5;--red:#a34236;--red-soft:#fbe9e5}
+*{box-sizing:border-box}body{margin:0;min-width:320px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:28px max(24px,calc((100vw - 980px)/2))}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.11em;color:var(--green);font-weight:750}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.08;margin:9px 0 10px;letter-spacing:-.035em}
+header p{max-width:850px;color:var(--muted);line-height:1.55;margin:0}
+main{max-width:980px;margin:0 auto;padding:22px 24px 32px}
+.back{display:inline-block;color:#176b51;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:18px}
+.back:hover{text-decoration:underline}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.badge{font-size:11px;font-weight:700;color:#435149;background:#f1f4f1;border-radius:999px;padding:6px 9px}
+.badge.high{color:#a34236;background:#fbe9e5}.badge.medium{color:#946200;background:#fff3d5}.badge.low{color:#176b51;background:#e6f3ed}
+.notice{background:#edf4ef;border:1px solid #d5e4d9;border-radius:12px;padding:13px 15px;margin-bottom:14px;color:#4d5d54;font-size:12px;line-height:1.5}
+.notice a{color:#176b51;text-decoration-thickness:1px;text-underline-offset:2px}
+.content{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(18px,4vw,34px)}
+.content h2{font-size:21px;line-height:1.25;margin:28px 0 11px;padding-bottom:8px;border-bottom:1px solid #e6ebe7;letter-spacing:-.02em}
+.content h2:first-child{margin-top:0}.content h3{font-size:16px;margin:22px 0 9px}
+.content p,.content li{font-size:14px;line-height:1.65;color:#394840}
+.content ul,.content ol{padding-left:24px;margin:10px 0 18px}
+.content li{padding-left:4px;margin:0 0 11px}
+.content code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:#f1f4f1;border:1px solid #e5eae5;border-radius:4px;padding:1px 4px;color:#30443a}
+.end{margin-top:16px}footer{max-width:980px;margin:0 auto;padding:0 24px 25px;color:var(--muted);font-size:11px;line-height:1.5}
+@media(max-width:580px){header{padding:24px 18px}main{padding:18px}.content{padding:18px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Learning Center · Ficha 5.1</div>
+  <h1>Create the local application scaffold</h1>
+  <p>Application foundation</p>
+  <div class="meta">
+    <span class="badge">Historia</span>
+    <span class="badge medium">Riesgo medio</span>
+    <span class="badge">Preparación: Listo para iniciar</span>
+    <span class="badge">Estado del ticket: backlog</span>
+    <span class="badge">Refinado</span>
+  </div>
+</header>
+<main>
+  <a class="back" href="../../../backlog-review.html">← Volver al backlog</a>
+  <div class="notice">Ficha de solo lectura generada desde el Markdown del ticket. <a href="story-create-the-local-application-scaffold.md">Abrir fuente Markdown</a></div>
+  <article class="content">
+<h1>Create the local application scaffold</h1>
+<h2>Description</h2>
+<p>Create the <code>apps/web</code>, <code>apps/api</code>, and <code>packages/contracts</code> workspace against the shared development contracts. The assignee manually verifies a clean local start and FTS5 support on every supported development platform using synthetic data only; no production identity, employee data, or source access is added.</p>
+<h2>Requirements</h2>
+<p>Verify: A new contributor follows the root README from a clean checkout, starts the Vike web app and Bun/Hono API with local SQLite, refreshes a nested web route, and receives the documented healthy API response through the local proxy; the assignee records FTS5 results for the supported development platforms.</p>
+<h2>Acceptance Criteria</h2>
+<ol>
+<li><strong>A clean checkout installs one pinned Bun workspace (R1)</strong><br><strong>Given</strong> a clean checkout<br><strong>When</strong> a contributor follows the install command in the root <code>README.md</code><br><strong>Then</strong> repository metadata pins the Bun release, direct dependencies have exact versions, and one checked-in Bun lockfile resolves the web, API, and contracts workspace packages; the Hono API starts without a committed secret.<br><strong>And</strong> the install succeeds from that lockfile without regenerating it; missing pins, a lockfile that cannot reproduce the workspace, or an API start that requires a committed secret fails this criterion.</li>
+<li><strong>The web app and API work through the local route contract (R1)</strong><br><strong>Given</strong> the documented install has completed<br><strong>When</strong> a contributor starts the documented web and API commands, opens a nested Vike route directly, refreshes it, and requests <code>/api/v1/health</code> through the Vike/Vite server<br><strong>Then</strong> <code>apps/web</code> uses React, strict TypeScript, Vike with <code>vike-react</code>, and Tailwind CSS; <code>apps/web</code>, <code>apps/api</code>, and <code>packages/contracts</code> enable TypeScript <code>strict</code> mode; the root README documents a no-emit type-check command for every package; Vike/Vite binds to <code>127.0.0.1</code>; the nested route renders after refresh; and the proxy reaches the Bun/Hono API.<br><strong>And</strong> the health route returns HTTP 200 with <code>{"status":"ok"}</code>; a missing strict setting or type-check command, a failed nested-route refresh, a health request that works only at the API origin, or a different health response fails this criterion.</li>
+<li><strong>Local SQLite and FTS5 are ready without defining catalog data (R1)</strong><br><strong>Given</strong> a fresh local configuration<br><strong>When</strong> a contributor runs the documented database and migration commands and the assignee runs the documented FTS5 smoke check<br><strong>Then</strong> Drizzle connection and migration setup are contained in <code>apps/api/src/db</code>, the SQLite file is outside tracked source, setup succeeds against a fresh database, and an ephemeral FTS5 table can be created, queried, and removed on every OS/architecture listed as supported in the root <code>README.md</code>.<br><strong>And</strong> the README records each supported platform, Bun version, and check result; a migration failure or FTS5 failure on any listed platform fails this criterion. The scaffold adds no canonical <code>LearningItem</code> or employee-linked schema.</li>
+<li><strong>The shared contract validates both runtime boundaries (R1)</strong><br><strong>Given</strong> the web app and API are installed<br><strong>When</strong> the API produces the health response and the browser consumes it<br><strong>Then</strong> both use the same versioned Zod schema and inferred type from <code>packages/contracts</code>, with API response validation and browser response parsing and no duplicated handwritten health payload type; request and response object schemas reject unknown keys, request schemas do not coerce values implicitly, and schemas distinguish omitted from nullable fields.<br><strong>And</strong> a missing runtime check, unknown-key acceptance, implicit request coercion, or a mismatch in omitted-versus-null behavior fails this criterion.</li>
+<li><strong>Local setup is safe and documented (R1)</strong><br><strong>Given</strong> the API and web settings are configured<br><strong>When</strong> a contributor reads the root <code>README.md</code> and follows it from a clean checkout<br><strong>Then</strong> exact clean-install, database, migration, type-check, API, web, and smoke-check commands are documented; <code>.env.example</code> explains required settings; the local app starts without credentials; and no credentials, local database file, or real employee data are tracked.<br><strong>And</strong> missing commands, undocumented required settings, a credential-dependent local start, or tracked local data fails this criterion.</li>
+<li><strong>The scaffold stays within the approved boundary (R1)</strong><br><strong>Given</strong> identity and source decisions remain open<br><strong>When</strong> this story is reviewed<br><strong>Then</strong> it includes no production sign-in provider, real employee identity or fixture, employee-linked schema, SharePoint credential, source connection, employee search, admin forms, source synchronization, CI, production database selection, or deployment.<br><strong>And</strong> the canonical <code>LearningItem</code> schema remains owned by ticket 5.7, and a local identity adapter is allowed only if ticket 1.2 approves its exact development-only contract and production exclusion.</li>
+</ol>
+<h2>Boundaries</h2>
+<ul>
+<li>Do not implement employee search, admin forms, the canonical <code>LearningItem</code> schema owned by ticket 5.7, employee-record schema, production authentication or access, source synchronization, CI, production database selection, or deployment in this story.</li>
+<li>Do not add a local identity adapter unless ticket 1.2 approves the exact development-only contract and its production exclusion.</li>
+<li>Keep the Vike/Vite development server bound to loopback; do not expose it on the local network.</li>
+<li>Put application setup commands in the repository root <code>README.md</code> and distinguish them from planning-only commands in <code>_bmad-output</code>.</li>
+</ul>
+<h2>References</h2>
+<ul>
+<li>parent — _bmad-output/initiative-learning-center/tickets/epic-application-foundation/epic-application-foundation.md, Requirements and Constraints</li>
+<li>architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-8, AD-10, AD-11, AD-13, AD-14, and AD-16</li>
+<li>contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, API and browser routing, Shared Zod contracts, and Local development</li>
+<li>initiative — _bmad-output/initiative-learning-center/initiative-learning-center.md, Constraint RULE-6</li>
+<li>team guide — _bmad-output/initiative-learning-center/TEAM-START-HERE.md, Decisiones de desarrollo and Orden para comenzar</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+<li>Decision: 2026-11-17 — Render the Vike client in SPA mode; revisit SSR only if a product requirement needs it.</li>
+<li>Decision: 2026-11-17 — Use Bun workspaces with one checked-in Bun lockfile for JavaScript/TypeScript packages.</li>
+<li>Decision: 2026-11-17 — Verify FTS5 by creating and querying an ephemeral table on each supported development platform and record platform, Bun version, and result in the root <code>README.md</code>.</li>
+<li>Decision: 2026-11-17 — <code>GET /api/v1/health</code> returns HTTP 200 with <code>{"status":"ok"}</code>, validated against the shared versioned Zod schema.</li>
+<li>Risk rationale: Medium because a broken or inconsistent scaffold blocks parallel work and encourages incompatible local setups.</li>
+<li>Beyond-criteria check: A second developer follows the instructions from a clean checkout and verifies the database, SPA, proxied API health route, and FTS5 on the listed platforms without help from the author.</li>
+</ul>
+  </article>
+  <div class="end"><a class="back" href="../../../backlog-review.html">← Volver al backlog</a></div>
+</main>
+<footer>Learning Center · vista HTML local para revisión de equipo</footer>
+</body>
+</html>
