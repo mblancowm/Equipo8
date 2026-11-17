@@ -1,28 +1,28 @@
 # Learning Center — team start
 
 Status: development decisions recorded; application code has not been scaffolded.
-Updated: 2026-11-11
+Updated: 2026-11-17
 
 ## What is settled for development
 
-- One repository with a Django REST API, a React Router SPA, and PostgreSQL.
-- Selected versions and dependency-lock decisions live in the architecture spine.
+- One repository with `apps/web` (Vike React and Tailwind CSS), `apps/api` (Bun/Hono), and `packages/contracts` (shared Zod schemas). All three TypeScript packages use strict mode. Drizzle ORM and SQLite provide zero-configuration local storage under `apps/api/src/db`; production database selection remains open.
+- Exact compatible package versions and the Bun lockfile are selected by scaffold ticket 5.1; it also provides one root type-check command for all three strict TypeScript packages. Do not invent setup commands before it creates the manifests.
 - The API, local proxy, identity boundary, record ownership, source-run lifecycle, and bilingual-search rules live in architecture-learning-center/shared-contracts.md.
 - The UI has English and Spanish locale support and targets WCAG 2.2 Level AA.
 - Local development uses synthetic identities and data only.
 
 ## First four work packets
 
-Choose one person for each packet. All four are ready to start in parallel:
+Choose one person for each packet. Tickets 5.2–5.4 are ready for parallel discovery; ticket 5.1 has been updated to match the company stack and awaits refinement of its SPA and implementation assumptions with Product and Engineering.
 
 | Person | Ticket | First output |
 | --- | --- | --- |
-| Developer A | 5.1 — local application scaffold | One documented local start path for the SPA, API, and PostgreSQL |
+| Developer A | 5.1 — local application scaffold | One documented local start path for the web app, API, shared contracts, and SQLite |
 | Developer B | 5.2 — identity and access policy | Approved identity key, role matrix, and named production-data gates |
 | Developer C | 5.3 — learning catalog field dictionary | Approved learning-item fields, ownership, validation, and search metadata |
 | Developer D | 5.4 — candidate SharePoint verification | Source map, sample schema, permission decision, and unsupported cases |
 
-The application-foundation epic is first in build order. Tickets 5.1, 5.2, 5.3, and 5.4 have no prerequisites and can start in parallel. Once 5.1 and 5.3 finish, ticket 5.7 creates the one canonical LearningItem schema used by manual-entry story 2.2 and source-import story 3.2.
+The application-foundation epic is first in build order. Tickets 5.2, 5.3, and 5.4 have no prerequisites and can start in parallel. Start implementation ticket 5.1 after refinement records acceptance of the Vike SPA mode and confirms the Bun workspace and FTS5 verification approach. The scaffold developer verifies FTS5 on supported systems. Once 5.1 and 5.3 finish, ticket 5.7 creates the one canonical LearningItem schema used by manual-entry story 2.2 and source-import story 3.2.
 
 ## How the team starts
 

@@ -18,11 +18,11 @@ risk: medium
 
 ## Description
 
-Establish a reproducible local baseline and shared identity, catalog, and source contracts so four engineers can build independently. The epic starts with four parallel tickets; CI and non-production deployment use later tickets after the organization confirms its delivery platform.
+Establish a reproducible local baseline and shared identity, catalog, and source contracts so four engineers can build independently. Identity, catalog, and source discovery can proceed in parallel; scaffold implementation starts after Product and Engineering refine ticket 5.1's assumptions. CI and non-production deployment use later tickets after the organization confirms its delivery platform.
 
 ## Outcome
 
-The four-person team can start on one local scaffold and three independently owned decisions without inventing incompatible identity, catalog, or source behavior.
+The four-person team can build on one local scaffold and three independently owned decisions without inventing incompatible identity, catalog, or source behavior.
 
 ## Requirements
 
@@ -37,12 +37,12 @@ The four-person team can start on one local scaffold and three independently own
 
 ## Done when
 
-- A new contributor can start the React SPA, Django API, and PostgreSQL using the committed local instructions and lockfiles.
+- A new contributor can start the Vike React web app and Bun/Hono API against the local SQLite database using committed instructions and lockfiles; shared Zod contracts are used at both runtime boundaries.
 - One canonical LearningItem model and migration implement the catalog dictionary approved in ticket 5.3; manual entry and source import consume the same schema.
 - The browser reaches the API through the agreed /api/v1 proxy and client routes load through the SPA fallback.
 - Identity/access, catalog fields, and SharePoint discovery have approved results or explicit named owner gates; no unapproved product or source behavior is assumed.
 - The repository owner approves the CI provider and Operations approves a non-production deployment target; the agreed delivery path is configured and manually verified.
-- The integrated application foundation is deployed to the approved production target and verified before the initiative release is declared complete. Until the target and owner are approved, this epic cannot be marked done.
+- The integrated application foundation is deployed to and verified in an approved non-production target. Production access and real employee data remain disabled until the organization records the identity, access, classification, retention, regional, and hosting approvals required by architecture AD-10; production launch is a separate release gate.
 
 ## Boundaries
 

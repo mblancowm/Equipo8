@@ -125,7 +125,7 @@ Baselines and targets are open questions; no numeric target is invented here.
 
 ## Experience and platform
 
-The selected development baseline is an internal browser SPA using React Router and a Django REST API with PostgreSQL. Exact versions, dependency management, local routing, API payloads, and shared identity/data/search contracts are recorded in architecture AD-11 and shared-contracts.md. The corporate design system and production hosting/operations remain open.
+The selected development baseline is an internal web app using React, TypeScript strict mode, Vike (`vike-react`), and Tailwind CSS; a Bun/Hono API and shared Zod contracts, also using TypeScript strict mode; and Drizzle ORM with SQLite for local storage. Exact compatible versions, local routing, API payloads, and shared identity/data/search contracts are recorded in architecture AD-11 and shared-contracts.md. The production database, corporate design system, and production hosting/operations remain open.
 
 ## Stakeholders, risks, and rollout
 
@@ -165,5 +165,5 @@ The product may contain employee-linked training and certification information. 
 - D-1: Employees are the primary audience and HR/learning administrators are also supported, based on the team's stated direction.
 - D-2: Automatic source imports and manual data entry are both desired capabilities.
 - D-3: The supplied SharePoint location is an example, not an approved or verified integration source.
-- D-4: The delegated development baseline is Django REST with Python, React Router SPA, and PostgreSQL; architecture AD-11 records versions, local proxy, package managers, and lockfiles.
+- D-4: The company development baseline is React/strict TypeScript with Vike and Tailwind, Bun/Hono, Drizzle with local SQLite, and shared Zod contracts; architecture AD-11 records the contracts and open assumptions. Production database and hosting are not selected.
 - D-5: The UI supports English and Spanish with a visible user-selected locale and targets WCAG 2.2 Level AA. Source text is not automatically translated; shared-contracts.md records locale and search behavior.
