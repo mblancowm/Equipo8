@@ -18,7 +18,7 @@ risk: medium
 
 ## Description
 
-Establish a reproducible local baseline and shared identity, catalog, and source contracts so four engineers can build independently. Identity, catalog, and source discovery can proceed in parallel; scaffold implementation starts after Product and Engineering refine ticket 5.1's assumptions. CI and non-production deployment use later tickets after the organization confirms its delivery platform.
+Establish a reproducible local baseline and shared identity, catalog, and source contracts so four engineers can build independently. Scaffold implementation starts from the decisions recorded in refined ticket 5.1, while identity, catalog, and source discovery can proceed in parallel. CI and non-production deployment use later tickets after the organization confirms its delivery platform.
 
 ## Outcome
 
