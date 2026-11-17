@@ -1,5 +1,7 @@
 # Technology and version-fit review — 2026-11-16
 
+> Historical review snapshot. The follow-up updates Hono evidence to 4.13.19, makes strict TypeScript mandatory in `apps/web`, `apps/api`, and `packages/contracts`, and requires a root no-emit type-check command in story 5.1.
+
 ## Verdict
 
 **Approve with minor follow-up.** The selected stack is technically coherent for the stated local-development baseline. Official documentation supports Bun with Hono and SQLite, Drizzle's Bun SQLite driver and migrations, Vike's React integration and SPA mode, Tailwind's Vite integration, and shared Zod runtime validation. I found one stale version claim and one consistency improvement for scaffold work.
@@ -31,3 +33,7 @@ Source: [Zod documentation](https://zod.dev/).
 ## Scope
 
 This review checked technology fit and named versions in the architecture spine and shared contracts. It did not review application behavior, ticket consistency, security policy, or implementation tests.
+
+## Final contract recheck — 2026-11-17
+
+The search contract now uses one shared FTS5 corpus for every enabled result kind and a deterministic kind/ID tie-break. The sync-health contract returns one entry per configured source so the admin UI can select a source as required by EXPERIENCE.md. Strict TypeScript coverage and the root no-emit check are assigned to scaffold ticket 5.1. **No remaining technical blocker found.** Personal-record inclusion remains a Product scope decision.

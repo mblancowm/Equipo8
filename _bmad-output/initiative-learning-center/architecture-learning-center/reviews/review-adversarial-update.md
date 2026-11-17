@@ -3,6 +3,8 @@
 Date: 2026-11-16
 Scope: `architecture-learning-center.md` and `shared-contracts.md`; adversarial checks across independently implemented API, web, database, authorization, search, and synchronization stories. No application code was reviewed.
 
+> The findings below preserve the review snapshot. Follow-up disposition for the updated contract is recorded at the end of this file.
+
 ## Verdict
 
 **Conditional pass for the local scaffold.** The company stack, local-only SQLite boundary, and security/data-governance gates are clear enough to start ticket 5.1. The spine and companion do not yet make the API/search wire contract concrete enough for independently built frontend and backend stories to integrate without a follow-up decision. Search, synchronization, and production persistence also retain deliberate or accidental gaps that should be closed at the owners and tickets identified below.
@@ -55,6 +57,19 @@ The documents correctly limit SQLite to local storage and defer the production d
 - Source text remains untranslated, UI locale does not filter search, and partial/failed synchronization preserves last-good data.
 - The local Vike/Vite proxy is distinguished from production routing; hosting, database, and regional choices remain deferred.
 
+## Follow-up disposition — 2026-11-17
+
+- **API and pagination contract:** The page envelope now defines one-based page numbers, defaults and bounds, relative continuation paths, empty pages, single-valued numeric/query parsing, duplicate/unknown-key rejection, a common error envelope, JSON Pointer field paths, and authorization before count and slicing. Search results use a discriminated union: catalog values from `v1.LearningItemResponseSchema` owned by 5.7, and optional personal-record values from `v1.EmployeeLearningRecordResponseSchema` owned by 2.3. The search story owns `v1.LearningSearchResponseSchema`; the 2.3 dependency remains until Product decides whether personal records are in the MVP.
+- **Search contract:** Query parsing, AND semantics, one shared FTS5 corpus across enabled result kinds, default BM25 rank, kind-and-ID tie-break ordering, and the absence of score/snippet fields in the first release are now specified. A shared corpus makes the rank comparable across kinds and avoids relying on a title field that personal records may not have. Product Owner search examples remain a gate before implementation; source fields and approved filters still depend on ticket 5.3.
+- **Zod semantics:** Request/response objects reject unknown fields; request coercion, omitted versus nullable values, UTC timestamps, and public error paths are now specified. Story 5.1 also requires strict TypeScript in all three packages plus a root no-emit type-check command.
+- **Synchronization:** Ticket 5.7 owns the imported-source unique constraint, and ticket 3.2 uses atomic conflict-safe upsert from the first import, so the import contract is enforced before later-update ticket 3.3. Story 3.4 owns `v1.SourceSyncHealthResponseSchema` and its authorized status route for all configured sources; admins select a source in the UI, and exact per-source count/error fields are finalized after the source map is verified. Production database portability remains an owner decision before production.
+- **Access revocation:** Ticket 5.2 now requires IT/Identity and Security to approve the maximum revocation delay or keep production access gated until that decision is recorded.
+- **Production database:** Portability remains an owner decision before production implementation. SQLite-specific migrations and queries stay within `apps/api/src/db`, and production data/deployment remain gated on the approved database and operations decisions.
+
 ## Review limit
 
 No application code or runtime was available to verify Bun's SQLite FTS5 build, the actual Drizzle migration behavior, or the Vike/Hono proxy. Ticket 5.1 should verify those local scaffold assumptions from a clean checkout; this review does not request application tests before the scaffold exists.
+
+## Final contract recheck — 2026-11-17
+
+The final read confirms that 5.7 creates the composite source-key constraint and 3.2 uses it with atomic upsert from the initial import; 3.3 is sequenced after that foundation and handles subsequent changes and approved withdrawals. The ticket tree reports no undeclared or unpinned dependencies and no order conflict. **No remaining blocker found.**

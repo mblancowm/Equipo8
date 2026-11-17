@@ -33,7 +33,9 @@ Timebox: one structured decision review. If required owners cannot approve a dec
    Verify: The approved role matrix states what an employee can see and change, what a learning administrator can see and change, and how a request for another employee's record is denied.
 3. **Production data gates have named owners**
    Verify: Security/Privacy and organizational data owners record data classification, access, retention, and regional-handling approvals or list each open approval, its owner, and the condition that blocks production employee data.
-4. **The decision is available to every waiting ticket**
+4. **Identity and role revocation timing is approved**
+   Verify: IT/Identity and Security/Privacy record the maximum time for disabled accounts and revoked roles to stop granting API access, or name the owner and keep production access blocked until it is approved.
+5. **The decision is available to every waiting ticket**
    Verify: The approved result or unresolved decisions are recorded under architecture AD-3, and the access story, employee-record story, and personal-search story can reference that location without duplicating a different policy.
 
 ## References

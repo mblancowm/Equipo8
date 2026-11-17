@@ -2,14 +2,14 @@
 id = 1
 type = "story"
 title = "Search approved learning information"
-description = "Lets an employee search the unified approved catalog records available to that employee."
-verify = "An employee searches approved English, Spanish, accented, and mixed-language samples and sees each authorized manual or imported item once, ranked by the shared contract, with type and source."
+description = "Defines the versioned v1.LearningSearchResponseSchema in packages/contracts and lets an employee search approved catalog items and, when included in the MVP, personal learning records."
+verify = "An employee searches Product Owner-approved English, Spanish, accented, mixed-language, punctuation, and filter examples and receives v1.LearningSearchResponseSchema. Each result is an approved LearningItemResponseSchema or EmployeeLearningRecordResponseSchema, appears once, and exposes approved type and source fields when available; authorization runs before count and pagination. All enabled result kinds use one FTS5 corpus; local results use default rank, then record kind BINARY order and internal ID, and expose neither a score nor a text snippet."
 covers = ["R1", "R2"]
 after = ["2.2", "2.3", "3.2", "1.2"]
 hitl = true
 risk = "medium"
 refine = true
-unknown = "Which catalog fields are searchable and which source-approved filters belong in first-release search?"
+unknown = "Which catalog fields and filters are searchable, and which personal record types are in the MVP? If personal records are excluded, remove the dependency on ticket 2.3 and keep catalog-only results."
 
 [[entry]]
 id = 2

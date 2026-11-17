@@ -29,11 +29,11 @@ Verify: A new contributor follows the documented clean-install steps, starts the
 2. **The repository has the approved web baseline**
    **Given** a clean checkout
    **When** a contributor follows the web instructions
-   **Then** `apps/web` uses React, strict TypeScript, Vike with `vike-react`, and Tailwind CSS, and the local Vike/Vite server binds to 127.0.0.1.
+   **Then** `apps/web` uses React, strict TypeScript, Vike with `vike-react`, and Tailwind CSS, and the local Vike/Vite server binds to 127.0.0.1. `apps/web`, `apps/api`, and `packages/contracts` all enable TypeScript `strict` mode, and a documented root command runs the TypeScript compiler in no-emit mode for every package.
 3. **The shared contract package validates both runtime boundaries**
    **Given** the web app and API are installed
    **When** a contributor inspects their request and response validation
-   **Then** both consume versioned Zod schemas and inferred TypeScript types from `packages/contracts`, with no duplicated handwritten API payload types.
+   **Then** both consume versioned Zod schemas and inferred TypeScript types from `packages/contracts`, with no duplicated handwritten API payload types; request and response object schemas reject unknown keys, request schemas do not coerce values implicitly, and schemas distinguish omitted from nullable fields.
 4. **Local SQLite and API routing work together**
    **Given** the local Drizzle schema and SQLite migrations are applied
    **When** the contributor opens and refreshes a nested web route and requests `/api/v1/health` through the local Vike/Vite server
@@ -41,7 +41,7 @@ Verify: A new contributor follows the documented clean-install steps, starts the
 5. **Local configuration is safe and documented**
    **Given** the API and web settings are configured
    **When** the contributor reads the root development instructions
-   **Then** clean-install, database, migration, API, and web commands are exact, required environment variables are explained in `.env.example`, and no credentials, local database file, or real employee data are committed.
+   **Then** clean-install, database, migration, type-check, API, and web commands are exact, required environment variables are explained in `.env.example`, and no credentials, local database file, or real employee data are committed.
 6. **The scaffold stays inside the approved boundary**
    **Given** identity and source decisions remain open
    **When** this story is reviewed

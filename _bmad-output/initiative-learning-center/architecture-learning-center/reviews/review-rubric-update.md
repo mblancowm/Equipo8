@@ -1,5 +1,7 @@
 # Architecture rubric review — 2026-11-16
 
+> Historical review snapshot from before the alignment fixes in this branch. The scaffold and 5.7 registry now use the company stack; the foundation epic now gates on an approved non-production deployment and reserves production access for the organizational approval gate in AD-10. The remaining review questions are tracked in the updated architecture and current ticket acceptance criteria.
+
 ## Verdict
 
 **Needs alignment fixes before the architecture can serve as a reliable build contract.** The spine identifies the major cross-epic boundaries and adopts the requested company stack coherently. The highest risk is the planning tree: the scaffold and canonical-model ticket inputs still require the superseded stack, and the application-foundation epic still requires production deployment while architecture and governance leave production hosting and access gated. The new spine itself should also restore the explicit production-access gate and finish exact version pinning before it is treated as final.
@@ -79,3 +81,7 @@ The spine frontmatter says `status: final`, while several structural decisions r
 - `tickets/epic-application-foundation/tickets/story-create-the-local-application-scaffold.md`
 - `tickets/epic-application-foundation/tickets/tickets.toml`
 - Repository-provided `AGENTS.md` instructions
+
+## Final spine recheck — 2026-11-17
+
+The latest contract updates close the cross-type ranking ambiguity with one FTS5 corpus, align source-health responses with the UX source selector, and place uniqueness before the first import. No further rubric blocker found; Product Owner search examples, personal-record MVP scope, identity/revocation approval, and production database/operations decisions remain explicit owner gates.

@@ -1,10 +1,10 @@
 # Learning Center — guía para arrancar con cuatro personas
 
-Actualizado: 2026-11-16. Tres tickets iniciales de descubrimiento están listos; el ticket de scaffold 5.1 está actualizado al stack de la empresa y espera que Producto e Ingeniería confirmen sus supuestos. Todavía no existe código de aplicación.
+Actualizado: 2026-11-17. Tres tickets iniciales de descubrimiento están listos; el ticket de scaffold 5.1 está actualizado al stack de la empresa y espera que Producto e Ingeniería confirmen sus supuestos. Todavía no existe código de aplicación.
 
 ## Decisiones de desarrollo
 
-1. `apps/web`: React con TypeScript estricto, Vike (`vike-react`) y Tailwind CSS. [SUPUESTO] Se conserva el modo SPA existente.
+1. `apps/web`: React, Vike (`vike-react`) y Tailwind CSS. TypeScript `strict` está activo en `apps/web`, `apps/api` y `packages/contracts`; 5.1 dejará un comando raíz documentado para revisar tipos en los tres paquetes. [SUPUESTO] Se conserva el modo SPA existente.
 2. `apps/api`: Bun con Hono. `apps/api/src/db`: Drizzle ORM con SQLite local. `packages/contracts`: esquemas Zod compartidos y validados en tiempo de ejecución por web y API.
 3. La web llama rutas relativas bajo `/api/v1`; Vike/Vite las redirige a Hono en desarrollo. Producción y base de datos de producción esperan decisión de sus responsables.
 4. API: respuestas JSON; colecciones paginadas con count, next, previous y results; validación por campo como lista de mensajes; errores generales con detail y códigos HTTP semánticos. Zod valida contratos, pero la autorización siempre se comprueba en la API.

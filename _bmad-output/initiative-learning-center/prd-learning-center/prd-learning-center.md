@@ -125,7 +125,7 @@ Baselines and targets are open questions; no numeric target is invented here.
 
 ## Experience and platform
 
-The selected development baseline is an internal web app using React, strict TypeScript, Vike (`vike-react`), and Tailwind CSS; a Bun/Hono API; shared Zod contracts; and Drizzle ORM with SQLite for local storage. Exact compatible versions, local routing, API payloads, and shared identity/data/search contracts are recorded in architecture AD-11 and shared-contracts.md. The production database, corporate design system, and production hosting/operations remain open.
+The selected development baseline is an internal web app using React, TypeScript strict mode, Vike (`vike-react`), and Tailwind CSS; a Bun/Hono API and shared Zod contracts, also using TypeScript strict mode; and Drizzle ORM with SQLite for local storage. Exact compatible versions, local routing, API payloads, and shared identity/data/search contracts are recorded in architecture AD-11 and shared-contracts.md. The production database, corporate design system, and production hosting/operations remain open.
 
 ## Stakeholders, risks, and rollout
 

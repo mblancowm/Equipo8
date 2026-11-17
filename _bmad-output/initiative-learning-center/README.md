@@ -1,12 +1,12 @@
 # Learning Center — team start
 
 Status: development decisions recorded; application code has not been scaffolded.
-Updated: 2026-11-16
+Updated: 2026-11-17
 
 ## What is settled for development
 
-- One repository with `apps/web` (Vike React, strict TypeScript, Tailwind CSS), `apps/api` (Bun/Hono), and `packages/contracts` (shared Zod schemas). Drizzle ORM and SQLite provide zero-configuration local storage under `apps/api/src/db`; production database selection remains open.
-- Exact compatible package versions and the Bun lockfile are selected by scaffold ticket 5.1; do not invent startup commands before it creates the manifests.
+- One repository with `apps/web` (Vike React and Tailwind CSS), `apps/api` (Bun/Hono), and `packages/contracts` (shared Zod schemas). All three TypeScript packages use strict mode. Drizzle ORM and SQLite provide zero-configuration local storage under `apps/api/src/db`; production database selection remains open.
+- Exact compatible package versions and the Bun lockfile are selected by scaffold ticket 5.1; it also provides one root type-check command for all three strict TypeScript packages. Do not invent setup commands before it creates the manifests.
 - The API, local proxy, identity boundary, record ownership, source-run lifecycle, and bilingual-search rules live in architecture-learning-center/shared-contracts.md.
 - The UI has English and Spanish locale support and targets WCAG 2.2 Level AA.
 - Local development uses synthetic identities and data only.

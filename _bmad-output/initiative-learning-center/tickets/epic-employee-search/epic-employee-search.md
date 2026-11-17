@@ -63,6 +63,7 @@ Employees can find relevant learning information without searching each approved
 ## Notes
 
 - Decision: 2026-11-11 — The access epic owns identity matching, the approved policy, and server-side role enforcement; this epic owns employee-facing search, filters, and details that apply that policy. This is the split for shared initiative requirement R2.
+- Contract decision: 2026-11-17 — Search story 4.1 consumes the catalog response schema from 5.7 and, only when personal records are approved for the MVP, the employee-record response schema from 2.3. The `after` dependency on 2.3 is intentional while both result kinds remain in search scope.
 - Assumption: employees need both discovery of learning items and access to their own completion or certification records.
 - Open question: which fields users need to search and filter, and which personal record types belong in the first release.
 - Open question: Operations must approve the production target and support model before this epic can be marked done.

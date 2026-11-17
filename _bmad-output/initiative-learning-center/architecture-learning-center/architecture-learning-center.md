@@ -7,7 +7,7 @@ paradigm: modular monolith with a Vike React client
 scope: cross-epic contracts for Learning Center development
 status: final
 created: 2026-11-11
-updated: 2026-11-16
+updated: 2026-11-17
 binds: [R1, R2, R3, R4, R5, RULE-6]
 sources:
   - _bmad-output/initiative-learning-center/initiative-learning-center.md
@@ -62,7 +62,7 @@ None. This is the initiative-level spine.
 
 **Prevents:** Retry duplication, false deletions from incomplete runs, and administrators or employees mistaking stale data for a successful import.
 
-**Rule:** Key an imported item by source connection and source item identifier. A partial or failed run never treats an absent item as deleted; preserve its last-good state and report the run outcome. Apply deletion or unpublishing only under an approved per-source rule and authoritative source signal, then mark the record withdrawn while retaining provenance and audit history. [ASSUMPTION] Implement synchronization as an idempotent Bun task invoked by an approved scheduler; add a queue or separate worker only if measured workload requires it.
+**Rule:** Key an imported item by source connection and source item identifier; enforce a unique constraint on that pair and use conflict-safe atomic upserts in the database module. A partial or failed run never treats an absent item as deleted; preserve its last-good state and report the run outcome. Apply deletion or unpublishing only under an approved per-source rule and authoritative source signal, then mark the record withdrawn while retaining provenance and audit history. [ASSUMPTION] Implement synchronization as an idempotent Bun task invoked by an approved scheduler; add a queue or separate worker only if measured workload requires it.
 
 ### AD-5 — [PROPOSED] Preserve field ownership and provenance
 
@@ -78,7 +78,7 @@ None. This is the initiative-level spine.
 
 **Prevents:** Search divergence from record ownership, stale permissions, and results appearing before the canonical change is committed.
 
-**Rule:** For the local synthetic-data baseline, use SQLite FTS5 over fields approved as searchable. Use the `unicode61` tokenizer, whose default behavior folds case and Latin diacritics; do not apply the built-in Porter stemmer to Spanish text. Keep the `en`, `es`, `mixed`, or `unknown` source-language metadata, and search English and Spanish text regardless of UI locale. Return each item once and order by relevance, then title and ID. [ASSUMPTION] Case- and diacritic-insensitive token matching is sufficient for the local baseline; the Product Owner must review search acceptance examples before the search story is implemented. FTS5 virtual tables are managed through SQL migrations and queries inside the API database module because Drizzle does not natively model SQLite extensions. Ticket 5.1 must verify that FTS5 is available with the selected Bun/SQLite build on the team’s supported development systems before the search story depends on it. Do not translate source text or add an external search service until measured volume or latency requires one. Return no hit, count, snippet, or detail if authorization cannot be checked. Show source synchronization freshness separately. Production search behavior follows the production database decision.
+**Rule:** For the local synthetic-data baseline, use SQLite FTS5 over fields approved as searchable. Use the `unicode61` tokenizer, whose default behavior folds case and Latin diacritics; do not apply the built-in Porter stemmer to Spanish text. Keep the `en`, `es`, `mixed`, or `unknown` source-language metadata, and search English and Spanish text regardless of UI locale. Return each approved item or personal record once using the discriminated result contract in shared-contracts.md. [ASSUMPTION] Put all enabled result kinds in one FTS5 corpus with one index row per `(record_kind, internal_id)` so BM25 ranks are comparable across kinds; order by FTS5 default `rank` (equal default column weights), best match first, then `record_kind COLLATE BINARY` and internal ID ascending. Do not expose the rank or snippets in the first release. The Product Owner must review search acceptance examples before the search story is implemented. [ASSUMPTION] Case- and diacritic-insensitive token matching is sufficient for the local baseline; revisit ranking or matching if the approved examples require it. FTS5 virtual tables are managed through SQL migrations and queries inside the API database module because Drizzle does not natively model SQLite extensions. Ticket 5.1 must verify that FTS5 is available with the selected Bun/SQLite build on the team’s supported development systems before the search story depends on it. Do not translate source text or add an external search service until measured volume or latency requires one. Apply authorization before counting and paging; return no hit, count, or detail if authorization cannot be checked. Show source synchronization freshness separately. Production search behavior follows the production database decision.
 
 ### AD-7 — [PROPOSED] Prefer approved metadata and links over file copies
 
@@ -88,13 +88,13 @@ None. This is the initiative-level spine.
 
 **Rule:** Do not show imported content, restricted metadata, or source links until the source owner approves and tests a per-user access path. If source authorization cannot be verified for an employee, omit the item and link from employee results.
 
-### AD-8 — [ADOPTED] Use strict TypeScript and React for the frontend
+### AD-8 — [ADOPTED] Use strict TypeScript across the application
 
-**Binds:** Employee and administrator interfaces use React with strict TypeScript.
+**Binds:** The web app, API, and shared contracts use TypeScript with consistent strict type checking.
 
 **Prevents:** Separately built screens using different frontend languages or weakening type checks.
 
-**Rule:** Use React and TypeScript in `apps/web`; enable TypeScript `strict` mode. [ASSUMPTION] Use TypeScript with `strict` mode for API and shared-contract code as well, so Zod schemas and inferred types can be shared without handwritten duplicates. Concrete frameworks and compatible dependency versions are set by AD-11 and the scaffold ticket.
+**Rule:** Use React in `apps/web` and enable TypeScript `strict` mode in `apps/web`, `apps/api`, and `packages/contracts`. Pin the compiler settings in each package manifest and provide one root command that runs a no-emit type check for all three packages. Concrete frameworks and compatible dependency versions are set by AD-11 and the scaffold ticket.
 
 ### AD-9 — [ADOPTED] Target WCAG 2.2 Level AA
 
@@ -118,7 +118,7 @@ None. This is the initiative-level spine.
 
 **Prevents:** Competing frameworks, duplicated data stores, incompatible routes, and frontend code bypassing server authorization.
 
-**Rule:** Keep `apps/web`, `apps/api`, and `packages/contracts` in this repository. Use React, strict TypeScript, Vike with `vike-react`, and Tailwind CSS in `apps/web`; use Bun and Hono in `apps/api`; use Drizzle ORM with SQLite for zero-configuration local storage in `apps/api/src/db`; define shared Zod runtime schemas in `packages/contracts`. The browser uses origin-relative JSON routes under `/api/v1`. [ASSUMPTION] Render the internal employee application as a Vike SPA, preserving the existing client-rendered shape; revisit SSR only if a product requirement needs it. [ASSUMPTION] Use TypeScript across web, API, and contracts, and Bun workspaces with one lockfile for JavaScript/TypeScript packages. Select exact compatible stable versions and pin them in ticket 5.1 lockfiles; do not carry forward the previous Python, Django, React Router, PostgreSQL, uv, or npm version pins. SQLite is the local default only; production database, hosting, network topology, identity provider, and data region remain deferred to their organizational owners.
+**Rule:** Keep `apps/web`, `apps/api`, and `packages/contracts` in this repository. Use React, strict TypeScript, Vike with `vike-react`, and Tailwind CSS in `apps/web`; use Bun and Hono in `apps/api`; use Drizzle ORM with SQLite for zero-configuration local storage in `apps/api/src/db`; define shared Zod runtime schemas in `packages/contracts`. The browser uses origin-relative JSON routes under `/api/v1`. [ASSUMPTION] Render the internal employee application as a Vike SPA, preserving the existing client-rendered shape; revisit SSR only if a product requirement needs it. [ASSUMPTION] Use TypeScript across web, API, and contracts, and Bun workspaces with one lockfile for JavaScript/TypeScript packages. AD-8 requires strict TypeScript in all three packages. Select exact compatible stable versions and pin them in ticket 5.1 lockfiles; do not carry forward the previous Python, Django, React Router, PostgreSQL, uv, or npm version pins. SQLite is the local default only; production database, hosting, network topology, identity provider, and data region remain deferred to their organizational owners.
 
 ### AD-12 — [ADOPTED] Provide English and Spanish interface text
 
@@ -142,7 +142,7 @@ None. This is the initiative-level spine.
 
 **Prevents:** Hard-coded origins, duplicate API conventions, inconsistent pagination, and development-only routing that cannot be reviewed.
 
-**Rule:** The browser calls origin-relative routes under `/api/v1`. The Vike/Vite development server proxies those routes to Hono and serves client routes locally. Production routes `/api/v1` to Hono and other app routes to the web app only after the hosting design is approved. Payload, Zod-validation, pagination, and error conventions live in shared-contracts.md.
+**Rule:** The browser calls origin-relative routes under `/api/v1`. The Vike/Vite development server proxies those routes to Hono and serves client routes locally. Production routes `/api/v1` to Hono and other app routes to the web app only after the hosting design is approved. Payload, Zod-validation, pagination, search, and error conventions live in shared-contracts.md.
 
 ### AD-15 — [ADOPTED] Keep interface locale separate from source language
 
@@ -158,7 +158,7 @@ None. This is the initiative-level spine.
 
 **Prevents:** Unreviewed transitive-version drift and environment-specific setup assumptions.
 
-**Rule:** Pin Bun and package dependencies in a checked-in Bun lockfile. Pin frontend/API TypeScript settings in their manifests and keep `apps/web` strict. Store the local SQLite file outside tracked source and commit only `.env.example`, never credentials or local records. Story 5.1 creates the manifests and records exact install, startup, migration, and manual smoke-check commands; do not claim those commands exist before then. Production database migrations, backups, concurrency, and recovery requirements are set with the approved operations owner.
+**Rule:** Pin Bun and package dependencies in a checked-in Bun lockfile. Pin TypeScript settings in the web, API, and contracts manifests and enable `strict` mode in all three packages. Provide one root command that checks all three packages with the TypeScript compiler without emitting files. Store the local SQLite file outside tracked source and commit only `.env.example`, never credentials or local records. Story 5.1 creates the manifests and records exact install, startup, migration, type-check, and manual smoke-check commands; do not claim those commands exist before then. Production database migrations, backups, concurrency, and recovery requirements are set with the approved operations owner.
 
 ## Consistency Conventions
 
