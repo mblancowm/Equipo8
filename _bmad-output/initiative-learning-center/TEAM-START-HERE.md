@@ -1,6 +1,6 @@
 # Learning Center — guía para arrancar con cuatro personas
 
-Actualizado: 2026-11-17. Tres tickets iniciales de descubrimiento están listos; el ticket de scaffold 5.1 está actualizado al stack de la empresa y espera que Producto e Ingeniería confirmen sus supuestos. Todavía no existe código de aplicación.
+Actualizado: 2026-11-18. Los cuatro tickets de la primera ola están asignados y listos para desarrollo; el ticket de scaffold 5.1 está actualizado al stack de la empresa y espera que Producto e Ingeniería confirmen sus supuestos antes de implementar. Todavía no existe código de aplicación.
 
 ## Decisiones de desarrollo
 
@@ -16,21 +16,21 @@ Actualizado: 2026-11-17. Tres tickets iniciales de descubrimiento están listos;
 
 ## Reparto inicial
 
-| Ranura | Ticket | Responsable de coordinar | Entrega |
+| Persona | Ticket | Responsable de coordinar | Entrega |
 | --- | --- | --- | --- |
-| Developer A | 5.1 | Persona que toma la base local | Inicio reproducible de web/API/contratos y SQLite; lockfile y comandos documentados |
-| Developer B | 5.2 | Persona que coordina con IT/Identity, HR y Security | Proveedor, llave de empleado, matriz de acceso, denegaciones y aprobaciones pendientes |
-| Developer C | 5.3 | Persona que coordina con Product Owner y HR/Learning | Diccionario aprobado de campos de Learning Item con dueño, validación y búsqueda |
-| Developer D | 5.4 | Persona que coordina con SharePoint owner e IT | Biblioteca, contenido, permisos, acceso automatizado, esquema de muestra y casos no soportados |
+| Marianne | 5.1 | Coordina la base local con Producto e Ingeniería | Inicio reproducible de web/API/contratos y SQLite; lockfile y comandos documentados |
+| Juan | 5.2 | Coordina con IT/Identity, HR y Security | Proveedor, llave de empleado, matriz de acceso, denegaciones y aprobaciones pendientes |
+| Daniela | 5.3 | Coordina con Product Owner y HR/Learning | Diccionario aprobado de campos de Learning Item con dueño, validación y búsqueda |
+| Harun | 5.4 | Coordina con SharePoint owner e IT | Biblioteca, contenido, permisos, acceso automatizado, esquema de muestra y casos no soportados |
 
-Cada persona toma una ranura y registra su nombre en el rastreador que use el equipo. Los tickets no tienen nombres ni estimaciones porque no se proporcionaron.
+Las asignaciones están registradas en los planes de los tickets. Las estimaciones y la cadencia del sprint siguen pendientes.
 
 ## Orden para comenzar
 
 1. Abrir esta guía, el ticket asignado y los contratos enlazados.
 2. Empezar 5.2, 5.3 y 5.4 en paralelo. Refinar 5.1 con Producto e Ingeniería antes de iniciar su implementación; quien lo tome verifica FTS5 en los sistemas soportados.
-3. Una vez refinado, Developer A crea solo la base local; usa datos sintéticos y no integra identidad corporativa ni conecta SharePoint.
-4. Developers B, C y D llevan las decisiones a sus dueños de negocio/IT y anotan aprobaciones, decisiones abiertas, evidencia y fecha en el artefacto del ticket.
+3. Una vez Producto e Ingeniería confirmen los supuestos, Marianne crea solo la base local; usa datos sintéticos y no integra identidad corporativa ni conecta SharePoint.
+4. Juan, Daniela y Harun llevan las decisiones a sus dueños de negocio/IT y anotan aprobaciones, decisiones abiertas, evidencia y fecha en el artefacto del ticket.
 5. Cuando 5.1 y 5.3 estén listos, tomar 5.7 para crear el único modelo LearningItem. Los tickets 2.2 y 3.2 esperan ese contrato; no creen modelos duplicados.
 6. Revisar los resultados de discovery y el scaffold. Después elegir el siguiente ticket con el tablero BMad.
 
