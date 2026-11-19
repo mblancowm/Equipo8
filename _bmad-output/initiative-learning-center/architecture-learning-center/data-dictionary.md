@@ -2,20 +2,28 @@
 title: "Learning Center data dictionary"
 status: pending-owner-approval
 version: 0.1.0
-updated: 2026-11-11
+updated: 2026-11-19
 ---
 
 # Learning Center data dictionary
 
 This is the shared output location for tickets 5.3 and 2.4. No application record fields are approved yet. Do not implement a field merely because it appears in a sample file.
 
-## Learning catalog fields — pending ticket 5.3
+## Learning catalog scope — approved 2026-11-19
+
+The first release includes courses, training resources, and certification offerings. Employee-specific records, completions, enrollment, and certification validity or expiry are out of scope for ticket 5.3 and remain pending spike 2.4.
+
+## Learning catalog fields — pending HR/Learning field approval
 
 | Record type | Field | Type | Required | Validation | Owner/write path | Language (`en`, `es`, `mixed`, `unknown`) | Searchable | Visibility | Approval/evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Pending | Pending | Pending | Pending | Pending | Pending | Pending | Pending | Pending | Product Owner and HR/Learning decision required |
 
 The shared search contract expects the source-language value to be `en`, `es`, `mixed`, or `unknown`; Product Owner and HR/Learning confirm how this metadata is supplied for each in-scope catalog type.
+
+## Open catalog decisions
+
+For every field or ownership rule that is not approved, record the open choice, the named owner, the evidence needed, and the dependent ticket IDs here. Do not enable either manual or source writes for that field until the decision is recorded and approved.
 
 ## System-managed provenance fields
 
