@@ -1,7 +1,7 @@
 ---
 title: "Create the local application scaffold"
 ticket: 1
-status: built
+status: done
 assignee: "Marianne"
 baseline_revision: "3008b53ae9ac59be9009c592f1e13c3781f91902"
 review: quick
