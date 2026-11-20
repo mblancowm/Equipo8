@@ -14,7 +14,7 @@ risk: medium
 
 ## Description
 
-Product Owner and HR/Learning answer which fields and write ownership define the minimum catalog schema before manual forms, imports, or search filters are built. The first release covers courses, training resources, and certification offerings. It excludes employee-specific records, completions, enrollment, and certification validity or expiry; spike 2.4 handles employee-linked fields after identity decision 5.2. Ticket 5.7 waits for the approved schema, and tickets 2.2 and 3.2 consume the same approved field and ownership decisions.
+Product Owner and HR/Learning answer which fields and write ownership define the minimum catalog schema before manual forms, imports, or search filters are built. The product scope includes courses, training resources, and certification offerings; this spike approves the initial Brownbag learning-resource POC only. Field contracts for courses and certification offerings beyond that POC are deferred. Employee-specific records, completions, enrollment, and certification validity or expiry remain with spike 2.4 after identity decision 5.2. Ticket 5.7 waits for the approved schema, and tickets 2.2 and 3.2 consume the same approved field and ownership decisions.
 
 ## Requirements
 
@@ -63,5 +63,6 @@ Verify: Product Owner and HR/Learning approve a catalog field dictionary with ty
 ## Notes
 
 - Decision: 2026-11-19 — First-release catalog scope is courses, training resources, and certification offerings. Employee-specific records, completions, enrollment, and certification validity or expiry are out of scope for this spike and remain with spike 2.4.
+- Decision: 2026-11-20 — For the initial Brownbag POC, `title` and `session_date` are the only catalog fields. SharePoint is authoritative for both within that POC; import is the only write path and manual edits are rejected. A missing SharePoint `Title` falls back to the source file name; a missing SharePoint `Date` stays empty while `Created` remains separate provenance metadata. The `title` source-language value is `unknown` because no approved source-language metadata is available; `session_date` has no language value.
 - Risk rationale: Medium because incorrect fields or ownership can create invalid catalog entries and block search/import integration.
 - Beyond-criteria check: Product Owner and HR/Learning review one manual-versus-imported field conflict and confirm the documented owner or review path.
