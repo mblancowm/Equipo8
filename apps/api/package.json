@@ -1,0 +1,20 @@
+{
+  "name": "@equipo8/api",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "db:migrate": "bun src/db/migrate.ts",
+    "db:fts5-smoke": "bun scripts/fts5-smoke.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@equipo8/contracts": "workspace:*",
+    "drizzle-orm": "0.45.4",
+    "hono": "4.13.19"
+  },
+  "devDependencies": {
+    "drizzle-kit": "0.31.11"
+  }
+}

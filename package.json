@@ -1,0 +1,25 @@
+{
+  "name": "equipo8-learning-center",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "bun@1.4.4",
+  "engines": {
+    "bun": "1.4.4"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "bun run --filter @equipo8/api dev",
+    "dev:web": "bun run --filter @equipo8/web dev",
+    "build:web": "bun run --filter @equipo8/web build",
+    "db:migrate": "bun run --filter @equipo8/api db:migrate",
+    "db:fts5-smoke": "bun run --filter @equipo8/api db:fts5-smoke",
+    "typecheck": "bun run --filter @equipo8/contracts typecheck && bun run --filter @equipo8/api typecheck && bun run --filter @equipo8/web typecheck"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.4",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,19 +1,19 @@
 # Learning Center — team start
 
-Status: development decisions recorded; application code has not been scaffolded.
-Updated: 2026-11-17
+Status: ticket 5.1 complete; local application scaffold implemented and verified on macOS ARM64.
+Updated: 2026-11-19
 
 ## What is settled for development
 
 - One repository with `apps/web` (Vike React and Tailwind CSS), `apps/api` (Bun/Hono), and `packages/contracts` (shared Zod schemas). All three TypeScript packages use strict mode. Drizzle ORM and SQLite provide zero-configuration local storage under `apps/api/src/db`; production database selection remains open.
-- Exact compatible package versions and the Bun lockfile are selected by scaffold ticket 5.1; it also provides one root type-check command for all three strict TypeScript packages. Do not invent setup commands before it creates the manifests.
+- Scaffold ticket 5.1 pins exact compatible package versions and one Bun lockfile, and provides a root type-check command for all three strict TypeScript packages. Application setup commands are in the repository root `README.md`.
 - The API, local proxy, identity boundary, record ownership, source-run lifecycle, and bilingual-search rules live in architecture-learning-center/shared-contracts.md.
 - The UI has English and Spanish locale support and targets WCAG 2.2 Level AA.
 - Local development uses synthetic identities and data only.
 
 ## First four work packets
 
-Choose one person for each packet. Tickets 5.2–5.4 are ready for parallel discovery; ticket 5.1 has been updated to match the company stack and awaits refinement of its SPA and implementation assumptions with Product and Engineering.
+Ticket 5.1 is complete. Tickets 5.2–5.4 remain ready for parallel discovery and are assigned below.
 
 | Person | Ticket | First output |
 | --- | --- | --- |
@@ -22,7 +22,7 @@ Choose one person for each packet. Tickets 5.2–5.4 are ready for parallel disc
 | Developer C | 5.3 — learning catalog field dictionary | Approved learning-item fields, ownership, validation, and search metadata |
 | Developer D | 5.4 — candidate SharePoint verification | Source map, sample schema, permission decision, and unsupported cases |
 
-The application-foundation epic is first in build order. Tickets 5.2, 5.3, and 5.4 have no prerequisites and can start in parallel. Start implementation ticket 5.1 after refinement records acceptance of the Vike SPA mode and confirms the Bun workspace and FTS5 verification approach. The scaffold developer verifies FTS5 on supported systems. Once 5.1 and 5.3 finish, ticket 5.7 creates the one canonical LearningItem schema used by manual-entry story 2.2 and source-import story 3.2.
+The application-foundation epic is first in build order. Tickets 5.2, 5.3, and 5.4 have no prerequisites and can start in parallel. The 5.1 scaffold is complete, with Bun workspace, Vike SPA, local SQLite, shared contracts, and FTS5 verified on macOS ARM64. Once 5.3 finishes, ticket 5.7 can create the canonical LearningItem schema used by manual-entry story 2.2 and source-import story 3.2.
 
 ## How the team starts
 
@@ -36,7 +36,7 @@ These branch and peer-review rules are this kickoff's team convention. The repos
 
 ## Current commands
 
-The application does not have backend/frontend manifests or runnable commands yet. Ticket 5.1 must create lockfiles and document the exact startup and smoke-check commands before the team relies on them.
+The application manifests and runnable commands are implemented. Follow the repository root `README.md` for clean install, database migration, type checking, local startup, and smoke checks.
 
 To see the current ready tickets:
 
