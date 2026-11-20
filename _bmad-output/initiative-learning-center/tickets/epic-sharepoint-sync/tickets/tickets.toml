@@ -1,4 +1,4 @@
-next_id = 5
+next_id = 7
 
 [[entry]]
 id = 2
@@ -14,13 +14,26 @@ refine = true
 unknown = "Does the source contain in-scope structured learning items and which automated permissions are approved?"
 
 [[entry]]
+id = 6
+type = "spike"
+title = "Evaluate optional SharePoint change scanning for Brownbag recordings"
+description = "After the append-only pilot import, assess whether automated metadata scans for changes, moves, or removals are useful and supportable. The pilot remains append-only with manual exception handling; this optional spike does not change or block ticket 3.2."
+verify = "The Product Owner, SharePoint owner, and IT record available change/removal signals, identifier behavior, scan completeness and failure handling, and ACL enforcement; they decide to defer or create/update an implementation ticket without allowing partial scans to cause false withdrawals."
+covers = ["R2", "R4"]
+after = [2]
+hitl = true
+risk = "medium"
+refine = true
+unknown = "Can SharePoint provide reliable change/removal signals for this folder, and is automatic scanning worth adding after the pilot?"
+
+[[entry]]
 id = 3
 type = "story"
 title = "Update imported records safely"
-description = "Applies later source changes and withdrawals using the unique key and atomic upsert introduced by tickets 5.7 and 3.2, following the approved field-ownership policy."
+description = "Optional follow-on after ticket 3.6: if an automated source-change scan is approved, applies later source changes and withdrawals using the unique key and atomic upsert introduced by tickets 5.7 and 3.2. Manual exception handling remains the pilot behavior."
 verify = "Retries and overlapping runs use the existing unique-key upsert without uncontrolled duplicates or silent data loss; partial runs preserve last-good data, and a source withdrawal changes a record only when its approved authoritative signal and per-source rule permit it."
 covers = ["R2", "R4"]
-after = [2, "5.3"]
+after = [2, "5.3", 6]
 hitl = true
 risk = "high"
 refine = true
@@ -38,3 +51,15 @@ hitl = true
 risk = "medium"
 refine = true
 unknown = "What synchronization delay and recovery target should the pilot meet?"
+
+[[entry]]
+id = 5
+type = "spike"
+title = "Assess topic and presenter metadata for Brownbag recordings"
+description = "After the initial import, determine whether Topic and Presenter can be sourced reliably and safely for Brownbag items. This optional enhancement does not block or change ticket 3.2."
+verify = "The Product Owner and HR/Learning decide whether each field can be added, with availability, completeness, ownership, classification, visibility, and source recorded in the data dictionary; unavailable or unapproved fields are deferred, and any approved additions get a separate implementation ticket."
+covers = ["R1"]
+after = [2]
+hitl = true
+risk = "medium"
+refine = true
