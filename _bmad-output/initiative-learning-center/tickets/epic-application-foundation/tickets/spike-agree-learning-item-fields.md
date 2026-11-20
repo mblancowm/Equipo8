@@ -3,7 +3,7 @@ id: 3
 type: spike
 title: "Agree learning item fields"
 parent: epic-application-foundation
-covers: [R1]
+covers: [R2]
 after: []
 refined: true
 hitl: true
@@ -14,11 +14,18 @@ risk: medium
 
 ## Description
 
-Product Owner and HR/Learning agree the minimum catalog schema and field ownership before manual forms, imports, or search filters are built. This spike covers shared learning items only; employee-linked fields are handled by spike 2.4 after identity decision 5.2.
+Product Owner and HR/Learning answer which fields and write ownership define the minimum catalog schema before manual forms, imports, or search filters are built. The product scope includes courses, training resources, and certification offerings; this spike approves the initial Brownbag learning-resource POC only. Field contracts for courses and certification offerings beyond that POC are deferred. Employee-specific records, completions, enrollment, and certification validity or expiry remain with spike 2.4 after identity decision 5.2. Ticket 5.7 waits for the approved schema, and tickets 2.2 and 3.2 consume the same approved field and ownership decisions.
 
 ## Requirements
 
 Verify: Product Owner and HR/Learning approve a catalog field dictionary with type, requiredness, validation, owner/write path, language, visibility, searchable flag, and unresolved items.
+
+## Approach
+
+1. Product Owner and HR/Learning review the confirmed catalog scope against the PRD and available source examples.
+2. They add one row per proposed field for each in-scope record type to `data-dictionary.md`, including the full field contract required by this ticket.
+3. They decide the authoritative owner and write path for every field that could be supplied manually or by a source. A field without that decision stays blocked from both paths.
+4. Product Owner and HR/Learning record their approval in the dictionary. Any unresolved choice names its owner, required evidence, and dependent tickets.
 
 ## Acceptance Criteria
 
@@ -37,7 +44,7 @@ Verify: Product Owner and HR/Learning approve a catalog field dictionary with ty
 4. **The approval and remaining work are traceable**
    **Given** Product Owner or HR/Learning cannot approve a field
    **When** the spike closes
-   **Then** the open choice, owner, evidence needed, and dependent tickets are named in the dictionary rather than guessed.
+   **Then** the open choice, owner, evidence needed, and dependent tickets are named in the `Open catalog decisions` section of the dictionary rather than guessed.
 
 ## Boundaries
 
@@ -55,5 +62,7 @@ Verify: Product Owner and HR/Learning approve a catalog field dictionary with ty
 
 ## Notes
 
+- Decision: 2026-11-19 — First-release catalog scope is courses, training resources, and certification offerings. Employee-specific records, completions, enrollment, and certification validity or expiry are out of scope for this spike and remain with spike 2.4.
+- Decision: 2026-11-20 — For the initial Brownbag POC, `title` and `session_date` are the only catalog fields. SharePoint is authoritative for both within that POC; import is the only write path and manual edits are rejected. A missing SharePoint `Title` falls back to the source file name; a missing SharePoint `Date` stays empty while `Created` remains separate provenance metadata. The `title` source-language value is `unknown` because no approved source-language metadata is available; `session_date` has no language value.
 - Risk rationale: Medium because incorrect fields or ownership can create invalid catalog entries and block search/import integration.
 - Beyond-criteria check: Product Owner and HR/Learning review one manual-versus-imported field conflict and confirm the documented owner or review path.

@@ -1,6 +1,6 @@
 ---
 title: "Agree learning item fields"
 ticket: 3
-status: ready-for-dev
+status: done
 assignee: "Daniela"
 ---
