@@ -1,5 +1,5 @@
 <!-- bmad:context -->
-<!-- Verified 2026-11-16 against 53519e9. Managed by bmad-project-context; edits inside this block are replaced on refresh. -->
+<!-- Verified 2026-11-20 against 0d7dadc5f6abf2d2eee96bbd3b96456fb8e30a4b. Managed by bmad-project-context; edits inside this block are replaced on refresh. -->
 
 ## Equipo8 — Learning Center
 
@@ -15,9 +15,12 @@ Learning Center is a planned internal learning and certification application. It
 
 - Select work from _bmad-output/initiative-learning-center/tickets/; prerequisites live in each ticket and tickets.toml.
 - Read architecture-learning-center.md and shared-contracts.md before changing APIs, shared data, authentication, synchronization, or locale/search behavior.
-- The application scaffold, root type-check command, and local startup instructions belong to ticket 5.1; manifests and runnable app commands do not exist yet.
+- Ticket 5.1 defines the scaffold scope; README.md documents local install, database, type-check, startup, and verification commands.
 
 ## Running and verifying
 
-- Run uv run _bmad/method/scripts/tickets.py --project-root . next to find ready tickets.
-- Do not guess app startup or verification commands; ticket 5.1 must document them when it creates the scaffold.
+- Run `python3 _bmad/method/scripts/tickets.py --project-root . next _bmad-output/initiative-learning-center` to find ready tickets; use `status` with the same folder to validate the backlog. This environment's Python has PyYAML 6.0.3.
+- Whenever a ticket file or tickets.toml changes, update `_bmad-output/initiative-learning-center/backlog-review.html`, including cards, dependencies, and snapshot date; verify its ticket references against `tickets.py status`.
+- Follow README.md for application commands; do not infer startup or verification steps.
+
+<!-- /bmad:context -->
