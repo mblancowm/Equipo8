@@ -1,6 +1,6 @@
 # Equipo 8 Learning Center
 
-Local application scaffold for the Learning Center. This development baseline uses synthetic data only and requires no credentials.
+Local Learning Center development app with an optional username/password demo login. It uses synthetic data only.
 
 ## Supported development platform
 
@@ -72,7 +72,7 @@ The expected response is HTTP 200 with exactly `{"status":"ok"}`. Open `http://1
 
 ## Configuration
 
-No environment variables are required. `.env.example` lists optional local port and database-path overrides. Copy it to `.env` at the repository root only when changing defaults; do not put credentials or local data in the repository.
+The local demo login is opt-in and works only when the API is not running in production. Copy .env.example to .env, set LEARNING_CENTER_LOCAL_AUTH_ENABLED=true, choose a username, and set a local password there. This checkout is already configured with the synthetic user demo. Keep .env ignored; never commit credentials or real employee data. Sessions expire after eight hours or when the API restarts.
 
 ## Shared API contracts
 

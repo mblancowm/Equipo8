@@ -48,13 +48,19 @@ None. This is the initiative-level spine.
 
 **Rule:** A source is not supported until its owner, permissions, content shape, and update behavior are verified. Source-owned fields and links are not exposed to employees until the source owner approves and tests the employee access path.
 
-### AD-3 — [PROPOSED] Enforce the approved access policy at the service boundary
+### AD-3 — [PROPOSED — owner approval pending] Enforce the approved access policy at the service boundary
 
 **Binds:** Every employee-specific read and write, search result, administrative mutation, and restricted operational view uses the approved identity and role policy on the server.
 
 **Prevents:** UI-only hiding or stale role data from exposing employee records, catalog edits, source status, exports, result counts, or snippets.
 
 **Rule:** Check the current policy for every requested action and each search hit before returning metadata or a snippet. Missing or ambiguous identity and unavailable authorization checks fail closed. Administrative actions remain denied until their permissions are approved.
+
+**Proposed implementation policy — not yet approved:** Reuse the organization-managed sign-in service selected by IT/Identity; do not create app-managed production passwords or accounts. Keep the provider subject separate from the organization-approved employee identifier. Never match an employee by email. For OIDC, use the `(issuer, subject)` pair as the provider identity and link it to the authoritative employee identifier only through an approved mapping. If OIDC is not the corporate standard, require an equivalent stable, non-reassigned provider identifier. Local development may use synthetic identities only.
+
+**Proposed access floor — not yet approved:** An employee may see only catalog items approved for employee visibility and, if the record type is approved for the MVP, only that employee's own learning records. A learning-administrator role receives only explicitly approved read/write actions and scope; it grants no general HR access. Operations access is limited to service health and sync status, without employee records. Deny cross-employee access and all unapproved administrative actions. Apply these checks before returning records, counts, search hits, snippets, exports, or metadata.
+
+**Open owner decisions:** IT/Identity must select the provider/protocol, authoritative employee key, US/CR matching source, and account-disable signal. HR/Learning and the Product Owner must approve the record types and role/action matrix. Security/Privacy and data owners must approve classification, retention, audit, and regional handling. IT/Identity and Security/Privacy must approve the maximum revocation delay; a target of five minutes or less is proposed for review, not an approved limit. Until these choices are recorded, production employee access stays disabled under AD-10. See `docs/planning/5-2-identity-and-access-spike-2026-11-24.md`.
 
 ### AD-4 — [PROPOSED] Make synchronization repeatable and preserve last-good data
 
@@ -134,7 +140,7 @@ None. This is the initiative-level spine.
 
 **Prevents:** Real employee data or a development identity shortcut being mistaken for production access control.
 
-**Rule:** Local fixtures use synthetic employees and records only. A development identity adapter must be disabled outside local development and must not be presented as production authentication. Production authentication is supplied by the identity provider approved under AD-3.
+**Rule:** Local fixtures use synthetic identities and records only. The local demo login is enabled only by an explicit environment flag, only outside production, and only while the API binds to loopback. It uses a synthetic username/password from the ignored local .env file, issues an eight-hour HttpOnly, SameSite=Strict cookie, and keeps sessions in memory; it creates no employee identifier, role, or employee record. It is not production authentication. Production sign-in must use the identity provider approved under AD-3.
 
 ### AD-14 — [ADOPTED] Share a versioned API and local Vike routing contract
 
