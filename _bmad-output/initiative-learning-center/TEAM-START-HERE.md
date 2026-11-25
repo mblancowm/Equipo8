@@ -1,6 +1,6 @@
 # Learning Center — guía para arrancar con cuatro personas
 
-Actualizado: 2026-11-19. El ticket de scaffold 5.1 está terminado y validado; su base local, comandos y contrato de salud ya están disponibles. Los tickets 5.2–5.4 siguen asignados y listos para avanzar.
+Actualizado: 2026-11-24. El scaffold 5.1 está terminado; 5.3 y 5.4 están completos. Juan dejó la propuesta de 5.2 en `docs/planning/5-2-identity-and-access-spike-2026-11-24.md`; está bloqueado hasta que los dueños aprueben identidad, roles y controles de datos.
 
 ## Decisiones de desarrollo
 
@@ -19,8 +19,8 @@ Actualizado: 2026-11-19. El ticket de scaffold 5.1 está terminado y validado; s
 | Persona | Ticket | Responsable de coordinar | Entrega |
 | --- | --- | --- | --- |
 | Marianne | 5.1 | Completado | Inicio reproducible de web/API/contratos y SQLite; lockfile, comandos y smoke checks documentados |
-| Juan | 5.2 | Coordina con IT/Identity, HR y Security | Proveedor, llave de empleado, matriz de acceso, denegaciones y aprobaciones pendientes |
-| Daniela | 5.3 | Coordina con Product Owner y HR/Learning | Diccionario aprobado de campos de Learning Item con dueño, validación y búsqueda |
+| Juan | 5.2 | Propuesta documentada; espera revisión de IT/Identity, HR/Learning, Product Owner y Security/Privacy | Proveedor y llave oficiales, matriz de acceso, denegaciones y aprobaciones pendientes |
+| Daniela | 5.3 | Completado | Diccionario aprobado de campos de Learning Item con dueño, validación y búsqueda |
 | Harun | 5.4 | Coordina con SharePoint owner e IT | Biblioteca, contenido, permisos, acceso automatizado, esquema de muestra y casos no soportados |
 
 Las asignaciones están registradas en los planes de los tickets. Las estimaciones y la cadencia del sprint siguen pendientes.
@@ -28,9 +28,9 @@ Las asignaciones están registradas en los planes de los tickets. Las estimacion
 ## Orden para comenzar
 
 1. Abrir esta guía, el ticket asignado y los contratos enlazados.
-2. Continuar 5.2, 5.3 y 5.4 en paralelo. El scaffold 5.1 ya está disponible como base local compartida.
+2. 5.3 y 5.4 están completos. La propuesta 5.2 requiere decisión de sus dueños antes de implementar acceso. Consultar `tickets.py next` para escoger el siguiente trabajo disponible. El scaffold 5.1 está disponible como base local compartida.
 3. Seguir el [README de la aplicación](../../README.md) para instalar y arrancar web/API y SQLite. Usar datos sintéticos; no integrar identidad corporativa ni conectar SharePoint.
-4. Juan, Daniela y Harun llevan las decisiones a sus dueños de negocio/IT y anotan aprobaciones, decisiones abiertas, evidencia y fecha en el artefacto del ticket.
+4. Juan lleva la propuesta 5.2 a IT/Identity, HR/Learning, Product Owner y Security/Privacy; Daniela continúa 5.3 y Harun usa el resultado de 5.4. Registren aprobaciones, decisiones abiertas, responsable, evidencia y fecha en los artefactos de cada ticket.
 5. Cuando 5.3 esté listo, tomar 5.7 para crear el único modelo LearningItem. Los tickets 2.2 y 3.2 esperan ese contrato; no creen modelos duplicados.
 6. Revisar los resultados de discovery y el scaffold. Después elegir el siguiente ticket con el tablero BMad.
 

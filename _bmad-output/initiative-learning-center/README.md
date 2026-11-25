@@ -1,7 +1,7 @@
 # Learning Center — team start
 
 Status: ticket 5.1 complete; local application scaffold implemented and verified on macOS ARM64.
-Updated: 2026-11-19
+Updated: 2026-11-24
 
 ## What is settled for development
 
@@ -13,16 +13,16 @@ Updated: 2026-11-19
 
 ## First four work packets
 
-Ticket 5.1 is complete. Tickets 5.2–5.4 remain ready for parallel discovery and are assigned below.
+Ticket 5.1 is complete, tickets 5.3 and 5.4 are done. Juan prepared the 5.2 identity/access proposal; it is waiting for organizational approval before 1.2 or 2.4 can proceed.
 
 | Person | Ticket | First output |
 | --- | --- | --- |
 | Developer A | 5.1 — local application scaffold | One documented local start path for the web app, API, shared contracts, and SQLite |
 | Developer B | 5.2 — identity and access policy | Approved identity key, role matrix, and named production-data gates |
-| Developer C | 5.3 — learning catalog field dictionary | Approved learning-item fields, ownership, validation, and search metadata |
+| Developer C | 5.3 — learning catalog field dictionary | Completed: approved learning-item fields, ownership, validation, and search metadata |
 | Developer D | 5.4 — candidate SharePoint verification | Source map, sample schema, permission decision, and unsupported cases |
 
-The application-foundation epic is first in build order. Tickets 5.2, 5.3, and 5.4 have no prerequisites and can start in parallel. The 5.1 scaffold is complete, with Bun workspace, Vike SPA, local SQLite, shared contracts, and FTS5 verified on macOS ARM64. Once 5.3 finishes, ticket 5.7 can create the canonical LearningItem schema used by manual-entry story 2.2 and source-import story 3.2.
+The application-foundation epic is first in build order. The 5.1 scaffold and tickets 5.3/5.4 are complete. Ticket 5.2 is blocked on identity/access decisions from IT/Identity, HR/Learning, the Product Owner, and Security/Privacy. Once 5.3 finishes, ticket 5.7 can create the canonical LearningItem schema used by manual-entry story 2.2 and source-import story 3.2.
 
 ## How the team starts
 
