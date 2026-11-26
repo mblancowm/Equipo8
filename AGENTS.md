@@ -1,5 +1,5 @@
 <!-- bmad:context -->
-<!-- Verified 2026-11-20 against 0d7dadc5f6abf2d2eee96bbd3b96456fb8e30a4b. Managed by bmad-project-context; edits inside this block are replaced on refresh. -->
+<!-- Verified 2026-11-26 against 03cc51871f9f344e7547274c02f614b544efac48. Managed by bmad-project-context; edits inside this block are replaced on refresh. -->
 
 ## Equipo8 — Learning Center
 
@@ -20,7 +20,8 @@ Learning Center is a planned internal learning and certification application. It
 ## Running and verifying
 
 - Run `python3 _bmad/method/scripts/tickets.py --project-root . next _bmad-output/initiative-learning-center` to find ready tickets; use `status` with the same folder to validate the backlog. This environment's Python has PyYAML 6.0.3.
-- Whenever a ticket file or tickets.toml changes, update `_bmad-output/initiative-learning-center/backlog-review.html`, including cards, dependencies, and snapshot date; verify its ticket references against `tickets.py status`.
+- Whenever ticket content, a `tickets.toml`, assignment, status, plan, or dependency changes, run `python3 _bmad-output/initiative-learning-center/scripts/refresh_backlog_web.py`. It refreshes `backlog-review.html` and every ticket's matching HTML view from the BMad ticket tree. Every backlog card must open its HTML ticket view; do not link the card to Markdown or show “view not created.”
+- After refreshing, validate ticket references with `python3 _bmad/method/scripts/tickets.py --project-root . status _bmad-output/initiative-learning-center` and confirm every ticket card links to an existing HTML view.
 - Follow README.md for application commands; do not infer startup or verification steps.
 
 <!-- /bmad:context -->

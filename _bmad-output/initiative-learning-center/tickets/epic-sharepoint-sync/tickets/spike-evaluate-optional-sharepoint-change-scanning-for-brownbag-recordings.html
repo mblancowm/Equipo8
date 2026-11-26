@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>3.6 · Evaluate optional SharePoint change scanning for Brownbag recordings</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17211f;background:#f4f6f3;font-synthesis:none;text-rendering:optimizeLegibility;--ink:#17211f;--muted:#64716c;--line:#dce3dd;--paper:#fff;--green:#176b51;--green-soft:#e6f3ed;--amber:#946200;--amber-soft:#fff3d5;--red:#a34236;--red-soft:#fbe9e5}
+*{box-sizing:border-box}body{margin:0;min-width:320px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:28px max(24px,calc((100vw - 980px)/2))}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.11em;color:var(--green);font-weight:750}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.08;margin:9px 0 10px;letter-spacing:-.035em}
+header p{max-width:850px;color:var(--muted);line-height:1.55;margin:0}
+main{max-width:980px;margin:0 auto;padding:22px 24px 32px}
+.back{display:inline-block;color:#176b51;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:18px}.back:hover{text-decoration:underline}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.badge{font-size:11px;font-weight:700;color:#435149;background:#f1f4f1;border-radius:999px;padding:6px 9px}
+.badge.high{color:#a34236;background:#fbe9e5}.badge.medium{color:#946200;background:#fff3d5}.badge.low{color:#176b51;background:#e6f3ed}
+.notice{background:#edf4ef;border:1px solid #d5e4d9;border-radius:12px;padding:13px 15px;margin-bottom:14px;color:#4d5d54;font-size:12px;line-height:1.5}.notice a{color:#176b51;text-decoration-thickness:1px;text-underline-offset:2px}
+.content{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(18px,4vw,34px)}
+.content h2{font-size:21px;line-height:1.25;margin:28px 0 11px;padding-bottom:8px;border-bottom:1px solid #e6ebe7;letter-spacing:-.02em}.content h2:first-child{margin-top:0}.content h3{font-size:16px;margin:22px 0 9px}
+.content p,.content li{font-size:14px;line-height:1.65;color:#394840}.content ul,.content ol{padding-left:24px;margin:10px 0 18px}.content li{padding-left:4px;margin:0 0 11px}
+.content code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:#f1f4f1;border:1px solid #e5eae5;border-radius:4px;padding:1px 4px;color:#30443a}
+.content a{color:#176b51;text-underline-offset:2px}.content blockquote{border-left:3px solid #a9cdbb;padding:1px 0 1px 16px;margin:14px 0}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:#f1f4f1}
+.end{margin-top:16px}footer{max-width:980px;margin:0 auto;padding:0 24px 25px;color:var(--muted);font-size:11px;line-height:1.5}
+@media(max-width:580px){header{padding:24px 18px}main{padding:18px}.content{padding:18px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Learning Center · Ficha 3.6</div>
+  <h1>Evaluate optional SharePoint change scanning for Brownbag recordings</h1>
+  <p>Approved source synchronization</p>
+  <div class="meta"><span class="badge">Spike</span><span class="badge medium">Riesgo medio</span><span class="badge">Preparación: Esperando dependencias</span><span class="badge">Estado: En backlog</span><span class="badge">Responsable: Sin asignar</span><span class="badge">R2</span><span class="badge">R4</span></div>
+</header>
+<main>
+  <a class="back" href="../../../backlog-review.html">← Volver al backlog</a>
+  <div class="notice">Ficha web de solo lectura generada desde el backlog BMad · <a href="spike-evaluate-optional-sharepoint-change-scanning-for-brownbag-recordings.md">Fuente Markdown</a></div>
+  <article class="content"><h2>Description</h2>
+<p>The pilot treats imported Brownbag recordings as append-only. If an existing file is changed, moved, renamed, or removed, a person handles that exception manually. The Product Owner wants an optional follow-up to assess whether a metadata scan can detect such changes safely and whether the automation is worth adding. This spike does not change or block the initial import in ticket 3.2.</p>
+<h2>Approach</h2>
+<ol><li>After ticket 3.2, ask the SharePoint owner and IT which source identifiers and change/removal signals are supported for this library and folder. Record evidence for rename, move, edit, delete, and incomplete scans; do not infer behavior from the presence of an ID, eTag, or timestamp.</li><li>Evaluate a safe scan design: full versus incremental scans, frequency, pagination/checkpoints, retry behavior, duplicate prevention, and how to distinguish a complete scan from a partial or failed scan.</li><li>Define how an observed change would interact with the canonical record and existing SharePoint ACLs. A partial scan must never mark unseen items as withdrawn or replace last-good data. Keep manual exception handling as the fallback.</li><li>Ask the Product Owner, SharePoint owner, and IT to choose whether to defer automated scanning or proceed. If approved, update/refine implementation ticket 3.3 or create a separate implementation ticket with the verified signals and permission requirements.</li></ol>
+<p>Timebox: The Product Owner will set it when this optional spike is started; no estimate is recorded.</p>
+<h2>Acceptance Criteria</h2>
+<ol><li><strong>Change and withdrawal signals are evidenced</strong><br>Verify: The source map names the exact supported SharePoint identifiers and signals for edits, renames, moves, and removals, or records which are unavailable. The evidence comes from the SharePoint owner or IT; observed ID/eTag fields alone do not establish lifecycle behavior.</li><li><strong>The scan design handles incomplete results safely</strong><br>Verify: The proposed design defines scan scope/frequency, pagination and checkpoints, retries, duplicate prevention, and how partial or failed scans are distinguished from complete scans. It never withdraws unseen items based on an incomplete scan and preserves last-good data.</li><li><strong>The Product Owner records a defer or proceed decision</strong><br>Verify: The Product Owner and relevant source/IT owners decide to keep manual exception handling or approve a follow-on implementation ticket. Any implementation ticket documents least-privilege access and enforcement of existing SharePoint ACLs.</li><li><strong>The initial import stays independent</strong><br>Verify: Ticket 3.2 remains append-only and does not wait for this spike. Ticket 3.6 is optional and occurs after the initial import.</li></ol>
+<h2>References</h2>
+<ul><li>parent — _bmad-output/initiative-learning-center/tickets/epic-sharepoint-sync/epic-sharepoint-sync.md, Requirements R2/R4 and append-only import constraints</li><li>initial import — _bmad-output/initiative-learning-center/tickets/epic-sharepoint-sync/tickets/tickets.toml, entry 2 (ticket 3.2)</li><li>update implementation — _bmad-output/initiative-learning-center/tickets/epic-sharepoint-sync/tickets/tickets.toml, entry 3 (ticket 3.3)</li><li>lifecycle contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Source synchronization lifecycle</li><li>source map — _bmad-output/initiative-learning-center/architecture-learning-center/sharepoint-source-map.md, Lifecycle and synchronization behavior</li><li>source verification — _bmad-output/initiative-learning-center/tickets/epic-application-foundation/tickets/spike-verify-the-candidate-sharepoint-source.md, Acceptance Criterion 4</li></ul>
+<h2>Notes</h2>
+<ul><li>Decision: 2026-11-20 — The Product Owner approved an append-only pilot with manual exception handling. An automatic scan is an optional future improvement and does not block ticket 3.2.</li><li>Risk rationale: Medium because an incorrect removal signal or incomplete scan could hide a valid learning item; the spike defines safeguards before any implementation.</li><li>Beyond-criteria check: IT and Security confirm the optional scanner can honor existing SharePoint ACLs without broadening access before implementation begins.</li><li>Open question: The Product Owner and source owner decide whether automation is valuable after observing the pilot.</li></ul><h2>Dependencias y seguimiento</h2><h3>Dependencias definidas</h3><ul><li><a href="ticket-2.html">3.2 · Import approved SharePoint learning information</a></li></ul><h3>Dependencias pendientes ahora</h3><ul><li><a href="ticket-2.html">3.2 · Import approved SharePoint learning information</a></li><li>Épica: Application foundation</li><li>Épica: Employee identity and access</li></ul><h3>Tickets que desbloquea</h3><ul><li><a href="ticket-3.html">3.3 · Update imported records safely</a></li></ul></article>
+  <div class="end"><a class="back" href="../../../backlog-review.html">← Volver al backlog</a></div>
+</main>
+<footer>Learning Center · ficha web local de revisión de equipo</footer>
+</body>
+</html>
