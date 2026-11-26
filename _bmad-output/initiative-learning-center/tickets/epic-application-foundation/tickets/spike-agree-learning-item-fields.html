@@ -13,20 +13,15 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:28px max(24px
 h1{font-size:clamp(28px,4vw,42px);line-height:1.08;margin:9px 0 10px;letter-spacing:-.035em}
 header p{max-width:850px;color:var(--muted);line-height:1.55;margin:0}
 main{max-width:980px;margin:0 auto;padding:22px 24px 32px}
-.back{display:inline-block;color:#176b51;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:18px}
-.back:hover{text-decoration:underline}
-.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
-.badge{font-size:11px;font-weight:700;color:#435149;background:#f1f4f1;border-radius:999px;padding:6px 9px}
+.back{display:inline-block;color:#176b51;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:18px}.back:hover{text-decoration:underline}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.badge{font-size:11px;font-weight:700;color:#435149;background:#f1f4f1;border-radius:999px;padding:6px 9px}
 .badge.high{color:#a34236;background:#fbe9e5}.badge.medium{color:#946200;background:#fff3d5}.badge.low{color:#176b51;background:#e6f3ed}
-.notice{background:#edf4ef;border:1px solid #d5e4d9;border-radius:12px;padding:13px 15px;margin-bottom:14px;color:#4d5d54;font-size:12px;line-height:1.5}
-.notice a{color:#176b51;text-decoration-thickness:1px;text-underline-offset:2px}
+.notice{background:#edf4ef;border:1px solid #d5e4d9;border-radius:12px;padding:13px 15px;margin-bottom:14px;color:#4d5d54;font-size:12px;line-height:1.5}.notice a{color:#176b51;text-decoration-thickness:1px;text-underline-offset:2px}
 .content{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(18px,4vw,34px)}
-.content h2{font-size:21px;line-height:1.25;margin:28px 0 11px;padding-bottom:8px;border-bottom:1px solid #e6ebe7;letter-spacing:-.02em}
-.content h2:first-child{margin-top:0}.content h3{font-size:16px;margin:22px 0 9px}
-.content p,.content li{font-size:14px;line-height:1.65;color:#394840}
-.content ul,.content ol{padding-left:24px;margin:10px 0 18px}
-.content li{padding-left:4px;margin:0 0 11px}
+.content h2{font-size:21px;line-height:1.25;margin:28px 0 11px;padding-bottom:8px;border-bottom:1px solid #e6ebe7;letter-spacing:-.02em}.content h2:first-child{margin-top:0}.content h3{font-size:16px;margin:22px 0 9px}
+.content p,.content li{font-size:14px;line-height:1.65;color:#394840}.content ul,.content ol{padding-left:24px;margin:10px 0 18px}.content li{padding-left:4px;margin:0 0 11px}
 .content code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:#f1f4f1;border:1px solid #e5eae5;border-radius:4px;padding:1px 4px;color:#30443a}
+.content a{color:#176b51;text-underline-offset:2px}.content blockquote{border-left:3px solid #a9cdbb;padding:1px 0 1px 16px;margin:14px 0}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:#f1f4f1}
 .end{margin-top:16px}footer{max-width:980px;margin:0 auto;padding:0 24px 25px;color:var(--muted);font-size:11px;line-height:1.5}
 @media(max-width:580px){header{padding:24px 18px}main{padding:18px}.content{padding:18px}}
 </style>
@@ -36,52 +31,27 @@ main{max-width:980px;margin:0 auto;padding:22px 24px 32px}
   <div class="eyebrow">Learning Center · Ficha 5.3</div>
   <h1>Agree learning item fields</h1>
   <p>Application foundation</p>
-  <div class="meta">
-    <span class="badge">Spike</span>
-    <span class="badge medium">Riesgo medio</span>
-    <span class="badge">Preparación: Listo para iniciar</span>
-    <span class="badge">Estado del ticket: backlog</span>
-    <span class="badge">Refinado</span>
-  </div>
+  <div class="meta"><span class="badge">Spike</span><span class="badge medium">Riesgo medio</span><span class="badge">Preparación: Completado</span><span class="badge">Estado: Completado</span><span class="badge">Responsable: Daniela</span><span class="badge">Refinado</span><span class="badge">R2</span></div>
 </header>
 <main>
   <a class="back" href="../../../backlog-review.html">← Volver al backlog</a>
-  <div class="notice">Ficha de solo lectura generada desde el Markdown del ticket. <a href="spike-agree-learning-item-fields.md">Abrir fuente Markdown</a></div>
-  <article class="content">
-<h1>Agree learning item fields</h1>
-<h2>Description</h2>
-<p>Product Owner and HR/Learning agree the minimum catalog schema and field ownership before manual forms, imports, or search filters are built. This spike covers shared learning items only; employee-linked fields are handled by spike 2.4 after identity decision 5.2.</p>
+  <div class="notice">Ficha web de solo lectura generada desde el backlog BMad · <a href="spike-agree-learning-item-fields.md">Fuente Markdown</a> · <a href="spike-agree-learning-item-fields-plan.md">Plan</a></div>
+  <article class="content"><h2>Description</h2>
+<p>Product Owner and HR/Learning answer which fields and write ownership define the minimum catalog schema before manual forms, imports, or search filters are built. The product scope includes courses, training resources, and certification offerings; this spike approves the initial Brownbag learning-resource POC only. Field contracts for courses and certification offerings beyond that POC are deferred. Employee-specific records, completions, enrollment, and certification validity or expiry remain with spike 2.4 after identity decision 5.2. Ticket 5.7 waits for the approved schema, and tickets 2.2 and 3.2 consume the same approved field and ownership decisions.</p>
 <h2>Requirements</h2>
 <p>Verify: Product Owner and HR/Learning approve a catalog field dictionary with type, requiredness, validation, owner/write path, language, visibility, searchable flag, and unresolved items.</p>
+<h2>Approach</h2>
+<ol><li>Product Owner and HR/Learning review the confirmed catalog scope against the PRD and available source examples.</li><li>They add one row per proposed field for each in-scope record type to <code>data-dictionary.md</code>, including the full field contract required by this ticket.</li><li>They decide the authoritative owner and write path for every field that could be supplied manually or by a source. A field without that decision stays blocked from both paths.</li><li>Product Owner and HR/Learning record their approval in the dictionary. Any unresolved choice names its owner, required evidence, and dependent tickets.</li></ol>
 <h2>Acceptance Criteria</h2>
-<ol>
-<li><strong>The first-release learning-item scope is named</strong><br><strong>Given</strong> the PRD and source examples are available<br><strong>When</strong> Product Owner and HR/Learning review catalog types<br><strong>Then</strong> the dictionary states which learning-item types are in scope and which are excluded or still open.</li>
-<li><strong>Every catalog field has an explicit contract</strong><br><strong>Given</strong> a field is proposed for an in-scope type<br><strong>When</strong> it is added to the dictionary<br><strong>Then</strong> its name, type, requiredness, validation, visibility, source language, searchability, authoritative owner, and write path are recorded.</li>
-<li><strong>Manual and source ownership cannot silently conflict</strong><br><strong>Given</strong> a field may be imported and manually maintained<br><strong>When</strong> owners review the dictionary<br><strong>Then</strong> one owner or an explicit conflict rule is approved, and unresolved fields are marked blocked from both write paths.</li>
-<li><strong>The approval and remaining work are traceable</strong><br><strong>Given</strong> Product Owner or HR/Learning cannot approve a field<br><strong>When</strong> the spike closes<br><strong>Then</strong> the open choice, owner, evidence needed, and dependent tickets are named in the dictionary rather than guessed.</li>
-</ol>
+<ol><li><strong>The first-release learning-item scope is named</strong><br><strong>Given</strong> the PRD and source examples are available<br><strong>When</strong> Product Owner and HR/Learning review catalog types<br><strong>Then</strong> the dictionary states which learning-item types are in scope and which are excluded or still open.</li><li><strong>Every catalog field has an explicit contract</strong><br><strong>Given</strong> a field is proposed for an in-scope type<br><strong>When</strong> it is added to the dictionary<br><strong>Then</strong> its name, type, requiredness, validation, visibility, source language, searchability, authoritative owner, and write path are recorded.</li><li><strong>Manual and source ownership cannot silently conflict</strong><br><strong>Given</strong> a field may be imported and manually maintained<br><strong>When</strong> owners review the dictionary<br><strong>Then</strong> one owner or an explicit conflict rule is approved, and unresolved fields are marked blocked from both write paths.</li><li><strong>The approval and remaining work are traceable</strong><br><strong>Given</strong> Product Owner or HR/Learning cannot approve a field<br><strong>When</strong> the spike closes<br><strong>Then</strong> the open choice, owner, evidence needed, and dependent tickets are named in the <code>Open catalog decisions</code> section of the dictionary rather than guessed.</li></ol>
 <h2>Boundaries</h2>
-<ul>
-<li>Do not define employee identity, employee-record types, or personal-record fields; spike 2.4 handles those after ticket 5.2.</li>
-<li>Do not assert that SharePoint is the approved source; ticket 5.4 verifies the candidate independently.</li>
-<li>Do not decide unapproved corporate data classifications or production permissions.</li>
-</ul>
+<ul><li>Do not define employee identity, employee-record types, or personal-record fields; spike 2.4 handles those after ticket 5.2.</li><li>Do not assert that SharePoint is the approved source; ticket 5.4 verifies the candidate independently.</li><li>Do not decide unapproved corporate data classifications or production permissions.</li></ul>
 <h2>References</h2>
-<ul>
-<li>parent — _bmad-output/initiative-learning-center/tickets/epic-application-foundation/epic-application-foundation.md</li>
-<li>prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, FR-1, FR-2, FR-5, FR-6, and OQ-3/OQ-4</li>
-<li>architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-1 and AD-5</li>
-<li>contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Record and field ownership</li>
-<li>output — _bmad-output/initiative-learning-center/architecture-learning-center/data-dictionary.md</li>
-</ul>
+<ul><li>parent — _bmad-output/initiative-learning-center/tickets/epic-application-foundation/epic-application-foundation.md</li><li>prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, FR-1, FR-2, FR-5, FR-6, and OQ-3/OQ-4</li><li>architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-1 and AD-5</li><li>contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Record and field ownership</li><li>output — _bmad-output/initiative-learning-center/architecture-learning-center/data-dictionary.md</li></ul>
 <h2>Notes</h2>
-<ul>
-<li>Risk rationale: Medium because incorrect fields or ownership can create invalid catalog entries and block search/import integration.</li>
-<li>Beyond-criteria check: Product Owner and HR/Learning review one manual-versus-imported field conflict and confirm the documented owner or review path.</li>
-</ul>
-  </article>
+<ul><li>Decision: 2026-11-19 — First-release catalog scope is courses, training resources, and certification offerings. Employee-specific records, completions, enrollment, and certification validity or expiry are out of scope for this spike and remain with spike 2.4.</li><li>Decision: 2026-11-20 — For the initial Brownbag POC, <code>title</code> and <code>session_date</code> are the only catalog fields. SharePoint is authoritative for both within that POC; import is the only write path and manual edits are rejected. A missing SharePoint <code>Title</code> falls back to the source file name; a missing SharePoint <code>Date</code> stays empty while <code>Created</code> remains separate provenance metadata. The <code>title</code> source-language value is <code>unknown</code> because no approved source-language metadata is available; <code>session_date</code> has no language value.</li><li>Risk rationale: Medium because incorrect fields or ownership can create invalid catalog entries and block search/import integration.</li><li>Beyond-criteria check: Product Owner and HR/Learning review one manual-versus-imported field conflict and confirm the documented owner or review path.</li></ul><h2>Dependencias y seguimiento</h2><h3>Dependencias definidas</h3><p>Ninguna registrada.</p><h3>Dependencias pendientes ahora</h3><p>Ninguna registrada.</p><h3>Tickets que desbloquea</h3><ul><li><a href="ticket-7.html">5.7 · Create the canonical learning-item schema</a></li><li><a href="../../epic-manual-records/tickets/ticket-2.html">2.2 · Create and edit a learning item manually</a></li><li><a href="../../epic-manual-records/tickets/ticket-4.html">2.4 · Define employee learning record fields and linkage</a></li><li><a href="../../epic-sharepoint-sync/tickets/ticket-2.html">3.2 · Import approved SharePoint learning information</a></li><li><a href="../../epic-sharepoint-sync/tickets/ticket-3.html">3.3 · Update imported records safely</a></li></ul></article>
   <div class="end"><a class="back" href="../../../backlog-review.html">← Volver al backlog</a></div>
 </main>
-<footer>Learning Center · vista HTML local para revisión de equipo</footer>
+<footer>Learning Center · ficha web local de revisión de equipo</footer>
 </body>
 </html>

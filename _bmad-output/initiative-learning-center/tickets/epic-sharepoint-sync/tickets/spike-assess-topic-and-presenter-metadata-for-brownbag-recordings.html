@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>3.5 · Assess topic and presenter metadata for Brownbag recordings</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17211f;background:#f4f6f3;font-synthesis:none;text-rendering:optimizeLegibility;--ink:#17211f;--muted:#64716c;--line:#dce3dd;--paper:#fff;--green:#176b51;--green-soft:#e6f3ed;--amber:#946200;--amber-soft:#fff3d5;--red:#a34236;--red-soft:#fbe9e5}
+*{box-sizing:border-box}body{margin:0;min-width:320px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:28px max(24px,calc((100vw - 980px)/2))}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.11em;color:var(--green);font-weight:750}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.08;margin:9px 0 10px;letter-spacing:-.035em}
+header p{max-width:850px;color:var(--muted);line-height:1.55;margin:0}
+main{max-width:980px;margin:0 auto;padding:22px 24px 32px}
+.back{display:inline-block;color:#176b51;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:18px}.back:hover{text-decoration:underline}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.badge{font-size:11px;font-weight:700;color:#435149;background:#f1f4f1;border-radius:999px;padding:6px 9px}
+.badge.high{color:#a34236;background:#fbe9e5}.badge.medium{color:#946200;background:#fff3d5}.badge.low{color:#176b51;background:#e6f3ed}
+.notice{background:#edf4ef;border:1px solid #d5e4d9;border-radius:12px;padding:13px 15px;margin-bottom:14px;color:#4d5d54;font-size:12px;line-height:1.5}.notice a{color:#176b51;text-decoration-thickness:1px;text-underline-offset:2px}
+.content{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(18px,4vw,34px)}
+.content h2{font-size:21px;line-height:1.25;margin:28px 0 11px;padding-bottom:8px;border-bottom:1px solid #e6ebe7;letter-spacing:-.02em}.content h2:first-child{margin-top:0}.content h3{font-size:16px;margin:22px 0 9px}
+.content p,.content li{font-size:14px;line-height:1.65;color:#394840}.content ul,.content ol{padding-left:24px;margin:10px 0 18px}.content li{padding-left:4px;margin:0 0 11px}
+.content code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:#f1f4f1;border:1px solid #e5eae5;border-radius:4px;padding:1px 4px;color:#30443a}
+.content a{color:#176b51;text-underline-offset:2px}.content blockquote{border-left:3px solid #a9cdbb;padding:1px 0 1px 16px;margin:14px 0}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:#f1f4f1}
+.end{margin-top:16px}footer{max-width:980px;margin:0 auto;padding:0 24px 25px;color:var(--muted);font-size:11px;line-height:1.5}
+@media(max-width:580px){header{padding:24px 18px}main{padding:18px}.content{padding:18px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Learning Center · Ficha 3.5</div>
+  <h1>Assess topic and presenter metadata for Brownbag recordings</h1>
+  <p>Approved source synchronization</p>
+  <div class="meta"><span class="badge">Spike</span><span class="badge medium">Riesgo medio</span><span class="badge">Preparación: Esperando dependencias</span><span class="badge">Estado: En backlog</span><span class="badge">Responsable: Sin asignar</span><span class="badge">Refinado</span><span class="badge">R1</span></div>
+</header>
+<main>
+  <a class="back" href="../../../backlog-review.html">← Volver al backlog</a>
+  <div class="notice">Ficha web de solo lectura generada desde el backlog BMad · <a href="spike-assess-topic-and-presenter-metadata-for-brownbag-recordings.md">Fuente Markdown</a></div>
+  <article class="content"><h2>Description</h2>
+<p>The initial SharePoint import in ticket 3.2 proceeds with the metadata approved for the first catalog. The Product Owner wants to evaluate <code>Topic</code> and <code>Presenter</code> as a later enhancement. This spike determines whether those fields can be sourced reliably and safely after the initial import; it does not block or change ticket 3.2.</p>
+<h2>Approach</h2>
+<ol><li>After ticket 3.2, review available SharePoint metadata and its completeness for <code>Topic</code> and <code>Presenter</code>. Use exact metadata fields or owner-provided metadata; do not infer values from recording content or file names.</li><li>With the Product Owner and HR/Learning, define each proposed field&#x27;s meaning, type, requiredness, validation, owner/write path, language, searchability, visibility, and evidence. Ask Security/Privacy to review whether <code>Presenter</code> identifies an employee and what visibility applies.</li><li>Record whether each field has a reliable, permitted source. If a field is unavailable or unapproved, mark it deferred; any content extraction or new access method requires a separate approved ticket.</li><li>Record the Product Owner&#x27;s decision in the data dictionary and source map. If a field is approved, create a separate implementation ticket for schema/import changes without changing the scope of ticket 3.2.</li></ol>
+<p>Timebox: Open question for the Product Owner to set when this future spike is started; no estimate is recorded.</p>
+<h2>Acceptance Criteria</h2>
+<ol><li><strong>The source and completeness of each proposed field are known</strong><br>Verify: The data dictionary or source map names the exact metadata field and its observed coverage, or records that no reliable source was found. Values are not inferred from video content or filenames.</li><li><strong>Each candidate field has an agreed contract</strong><br>Verify: For any field considered for inclusion, the data dictionary records its meaning, type, requiredness, validation, authoritative owner/write path, language, searchability, visibility, classification, and evidence. Unsettled decisions are named with their owner and required evidence.</li><li><strong>The Product Owner&#x27;s decision is recorded</strong><br>Verify: The Product Owner and HR/Learning explicitly choose to add or defer <code>Topic</code> and <code>Presenter</code>; if approved, a separate implementation ticket names the schema and import work.</li><li><strong>The first import remains independent</strong><br>Verify: Ticket 3.2 retains its current approved scope and does not wait on this spike. No recording content is opened, transcribed, copied, or imported as part of this spike.</li></ol>
+<h2>References</h2>
+<ul><li>parent — _bmad-output/initiative-learning-center/tickets/epic-sharepoint-sync/epic-sharepoint-sync.md, Requirements R1 and Constraints C1/C3/C4</li><li>source map — _bmad-output/initiative-learning-center/architecture-learning-center/sharepoint-source-map.md, Read-only folder and metadata inspection; Open decision gates</li><li>catalog fields — _bmad-output/initiative-learning-center/tickets/epic-application-foundation/tickets/spike-agree-learning-item-fields.md, Acceptance Criteria</li><li>dictionary — _bmad-output/initiative-learning-center/architecture-learning-center/data-dictionary.md, Learning catalog fields</li><li>contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Record and field ownership</li><li>initial import — _bmad-output/initiative-learning-center/tickets/epic-sharepoint-sync/tickets/tickets.toml, entry 2 (ticket 3.2)</li></ul>
+<h2>Notes</h2>
+<ul><li>Decision: 2026-11-20 — The currently available metadata is sufficient for the initial catalog; <code>Topic</code> and <code>Presenter</code> are optional future enhancements and do not block ticket 3.2.</li><li>Decision: 2026-11-20 — The Product Owner approved this ticket&#x27;s scope and acceptance criteria; the ticket is refined.</li><li>Risk rationale: Medium because an incorrect <code>Presenter</code> field could expose personal information, while this spike only evaluates availability and ownership.</li><li>Beyond-criteria check: Security/Privacy confirms whether proposed presenter values are employee-linked and whether their visibility is permitted before a follow-on implementation ticket starts.</li><li>Open question: The Product Owner will set the timebox when this future spike is pulled.</li></ul><h2>Dependencias y seguimiento</h2><h3>Dependencias definidas</h3><ul><li><a href="ticket-2.html">3.2 · Import approved SharePoint learning information</a></li></ul><h3>Dependencias pendientes ahora</h3><ul><li><a href="ticket-2.html">3.2 · Import approved SharePoint learning information</a></li><li>Épica: Application foundation</li><li>Épica: Employee identity and access</li></ul><h3>Tickets que desbloquea</h3><p>Ninguna registrada.</p></article>
+  <div class="end"><a class="back" href="../../../backlog-review.html">← Volver al backlog</a></div>
+</main>
+<footer>Learning Center · ficha web local de revisión de equipo</footer>
+</body>
+</html>

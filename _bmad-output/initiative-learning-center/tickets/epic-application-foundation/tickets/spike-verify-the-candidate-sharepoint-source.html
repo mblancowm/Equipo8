@@ -13,20 +13,15 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:28px max(24px
 h1{font-size:clamp(28px,4vw,42px);line-height:1.08;margin:9px 0 10px;letter-spacing:-.035em}
 header p{max-width:850px;color:var(--muted);line-height:1.55;margin:0}
 main{max-width:980px;margin:0 auto;padding:22px 24px 32px}
-.back{display:inline-block;color:#176b51;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:18px}
-.back:hover{text-decoration:underline}
-.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
-.badge{font-size:11px;font-weight:700;color:#435149;background:#f1f4f1;border-radius:999px;padding:6px 9px}
+.back{display:inline-block;color:#176b51;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:18px}.back:hover{text-decoration:underline}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.badge{font-size:11px;font-weight:700;color:#435149;background:#f1f4f1;border-radius:999px;padding:6px 9px}
 .badge.high{color:#a34236;background:#fbe9e5}.badge.medium{color:#946200;background:#fff3d5}.badge.low{color:#176b51;background:#e6f3ed}
-.notice{background:#edf4ef;border:1px solid #d5e4d9;border-radius:12px;padding:13px 15px;margin-bottom:14px;color:#4d5d54;font-size:12px;line-height:1.5}
-.notice a{color:#176b51;text-decoration-thickness:1px;text-underline-offset:2px}
+.notice{background:#edf4ef;border:1px solid #d5e4d9;border-radius:12px;padding:13px 15px;margin-bottom:14px;color:#4d5d54;font-size:12px;line-height:1.5}.notice a{color:#176b51;text-decoration-thickness:1px;text-underline-offset:2px}
 .content{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(18px,4vw,34px)}
-.content h2{font-size:21px;line-height:1.25;margin:28px 0 11px;padding-bottom:8px;border-bottom:1px solid #e6ebe7;letter-spacing:-.02em}
-.content h2:first-child{margin-top:0}.content h3{font-size:16px;margin:22px 0 9px}
-.content p,.content li{font-size:14px;line-height:1.65;color:#394840}
-.content ul,.content ol{padding-left:24px;margin:10px 0 18px}
-.content li{padding-left:4px;margin:0 0 11px}
+.content h2{font-size:21px;line-height:1.25;margin:28px 0 11px;padding-bottom:8px;border-bottom:1px solid #e6ebe7;letter-spacing:-.02em}.content h2:first-child{margin-top:0}.content h3{font-size:16px;margin:22px 0 9px}
+.content p,.content li{font-size:14px;line-height:1.65;color:#394840}.content ul,.content ol{padding-left:24px;margin:10px 0 18px}.content li{padding-left:4px;margin:0 0 11px}
 .content code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:#f1f4f1;border:1px solid #e5eae5;border-radius:4px;padding:1px 4px;color:#30443a}
+.content a{color:#176b51;text-underline-offset:2px}.content blockquote{border-left:3px solid #a9cdbb;padding:1px 0 1px 16px;margin:14px 0}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:#f1f4f1}
 .end{margin-top:16px}footer{max-width:980px;margin:0 auto;padding:0 24px 25px;color:var(--muted);font-size:11px;line-height:1.5}
 @media(max-width:580px){header{padding:24px 18px}main{padding:18px}.content{padding:18px}}
 </style>
@@ -36,54 +31,25 @@ main{max-width:980px;margin:0 auto;padding:22px 24px 32px}
   <div class="eyebrow">Learning Center · Ficha 5.4</div>
   <h1>Verify the candidate SharePoint source</h1>
   <p>Application foundation</p>
-  <div class="meta">
-    <span class="badge">Spike</span>
-    <span class="badge high">Riesgo alto</span>
-    <span class="badge">Preparación: Listo para iniciar</span>
-    <span class="badge">Estado del ticket: backlog</span>
-    <span class="badge">Refinado</span>
-  </div>
+  <div class="meta"><span class="badge">Spike</span><span class="badge high">Riesgo alto</span><span class="badge">Preparación: Completado</span><span class="badge">Estado: Completado</span><span class="badge">Responsable: Harun</span><span class="badge">Refinado</span><span class="badge">R1</span></div>
 </header>
 <main>
   <a class="back" href="../../../backlog-review.html">← Volver al backlog</a>
-  <div class="notice">Ficha de solo lectura generada desde el Markdown del ticket. <a href="spike-verify-the-candidate-sharepoint-source.md">Abrir fuente Markdown</a></div>
-  <article class="content">
-<h1>Verify the candidate SharePoint source</h1>
-<h2>Description</h2>
-<p>The source owner and IT verify whether the example SharePoint location contains approved learning catalog data and can be read through an authorized, supportable integration path. This is discovery only; it does not connect the app or copy source files.</p>
+  <div class="notice">Ficha web de solo lectura generada desde el backlog BMad · <a href="spike-verify-the-candidate-sharepoint-source.md">Fuente Markdown</a> · <a href="spike-verify-the-candidate-sharepoint-source-plan.md">Plan</a></div>
+  <article class="content"><h2>Description</h2>
+<p>Verify the candidate SharePoint folder for a read-only proof of concept (POC): its contents, metadata, owner/use, and existing permission boundary. The POC uses the authorized user&#x27;s existing SharePoint permissions and does not request broader access. This discovery does not authorize production access or copy source files.</p>
 <h2>Requirements</h2>
-<p>Verify: The source owner and IT provide an approved source map, permission decision, sample schema, and list of unsupported or unresolved cases.</p>
+<p>Verify: The source map records the PO-approved POC scope and source key, observed sample schema, existing-permission boundary, and unsupported or unresolved cases with owners. Production-only approvals remain explicit gates for any later production connector.</p>
 <h2>Acceptance Criteria</h2>
-<ol>
-<li><strong>The source location and accountable owner are confirmed</strong><br><strong>Given</strong> the example folder name is known<br><strong>When</strong> the source owner reviews the location<br><strong>Then</strong> the exact site, library/folder, owner, and approved use are recorded, or the source is rejected with a reason.</li>
-<li><strong>The content is classified for the pilot</strong><br><strong>Given</strong> an owner-approved sample is available<br><strong>When</strong> the team examines its files and metadata<br><strong>Then</strong> file types, structure, in-scope learning items, employee-linked data presence, and unsupported cases are recorded without copying the source into the application.</li>
-<li><strong>Read permissions are approved</strong><br><strong>Given</strong> an automated connector is considered<br><strong>When</strong> IT and the source owner assess access<br><strong>Then</strong> the least-privilege permission, credential owner, and whether employees need per-user source access are documented and approved or listed as open gates.</li>
-<li><strong>Updates and withdrawals have an authoritative signal</strong><br><strong>Given</strong> a source item changes, disappears, or is renamed<br><strong>When</strong> the source owner explains lifecycle behavior<br><strong>Then</strong> stable identifiers, update signals, deletion/withdrawal signals, and any unavailable semantics are recorded for later implementation.</li>
-<li><strong>The result is shared without inventing approval</strong><br><strong>Given</strong> any owner cannot decide an item<br><strong>When</strong> the spike closes<br><strong>Then</strong> the question, owner, required evidence, and blocked tickets are captured in the source map.</li>
-<li><strong>A rejected candidate has an explicit next step</strong><br><strong>Given</strong> the candidate is unsuitable or access cannot be approved<br><strong>When</strong> the source owner and Product Owner close the review<br><strong>Then</strong> the Product Owner selects a different candidate for a new verification spike or records that the source integration is deferred; no connector starts against an unverified fallback.</li>
-</ol>
+<ol><li><strong>The source location and accountable owner are confirmed</strong><br><strong>Given</strong> the example folder name is known<br><strong>When</strong> the source owner reviews the location<br><strong>Then</strong> the exact site, library/folder, owner, and approved use are recorded, or the source is rejected with a reason.</li><li><strong>The content is inventoried for the pilot</strong><br><strong>Given</strong> the Product Owner authorizes one-time read-only exploration and the connected account has access<br><strong>When</strong> the team inspects the folder listing and available item metadata<br><strong>Then</strong> file types, structure, in-scope learning items, employee-linked data indicators in metadata, and unsupported cases are recorded without downloading or copying recording contents.</li><li><strong>The read-only POC stays within existing permissions</strong><br><strong>Given</strong> Harun has selected this candidate for a POC<br><strong>When</strong> the team inspects source metadata using the authorized connected account<br><strong>Then</strong> the work is read-only, uses that account&#x27;s existing SharePoint permissions, and does not broaden access. No separate IT confirmation is required for this POC or its Graph item-key choice. Production access, app-only credentials, or broader permissions remain separate approval gates.</li><li><strong>The POC has an idempotent source key and explicit lifecycle rule</strong><br><strong>Given</strong> the same recording is encountered again during an import retry<br><strong>When</strong> the source map is finalized<br><strong>Then</strong> it recommends the configured source connection/drive plus Graph <code>driveItem.id</code> as the item key, records documented rename/move behavior within one drive, and records the append-only pilot with manual handling of exceptional changes. Unverified automated change/withdrawal signals remain deferred to ticket 3.6.</li><li><strong>The result is shared without inventing approval</strong><br><strong>Given</strong> any owner cannot decide an item<br><strong>When</strong> the spike closes<br><strong>Then</strong> the question, owner, required evidence, and blocked tickets are captured in the source map.</li><li><strong>A rejected candidate has an explicit next step</strong><br><strong>Given</strong> the candidate is unsuitable or access cannot be approved<br><strong>When</strong> the source owner and Product Owner close the review<br><strong>Then</strong> the Product Owner selects a different candidate for a new verification spike or records that the source integration is deferred; no connector starts against an unverified fallback.</li></ol>
 <h2>Boundaries</h2>
-<ul>
-<li>Do not use real employee data or credentials in local development.</li>
-<li>Do not connect to SharePoint, download files, or expose links to employees in this discovery ticket.</li>
-<li>Do not promise SharePoint as the pilot source until the owner approves it.</li>
-</ul>
+<ul><li>Do not use real employee data or credentials in local development.</li><li>A one-time read-only inspection of the candidate folder listing and available item metadata by this agent is within this discovery ticket following the Product Owner&#x27;s direction, using the authorized connected account. Do not download or play recordings, modify source items, or connect the future Learning Center application.</li><li>Do not copy metadata containing personal information into the repository. If employee-linked information appears, record only that it is present and the classification question; do not reproduce the data.</li><li>Do not expose source links to employees. This exploratory inspection does not approve the future application connector, its credentials, or employee access path.</li><li>Do not promise SharePoint as the pilot source until the owner approves it.</li></ul>
 <h2>References</h2>
-<ul>
-<li>parent — _bmad-output/initiative-learning-center/tickets/epic-application-foundation/epic-application-foundation.md</li>
-<li>prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, FR-7 to FR-9 and OQ-1/OQ-4/OQ-8</li>
-<li>architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-2, AD-4, AD-5, and AD-7</li>
-<li>contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Record and field ownership and Source synchronization lifecycle</li>
-<li>output — _bmad-output/initiative-learning-center/architecture-learning-center/sharepoint-source-map.md</li>
-</ul>
+<ul><li>parent — _bmad-output/initiative-learning-center/tickets/epic-application-foundation/epic-application-foundation.md</li><li>prd — _bmad-output/initiative-learning-center/prd-learning-center/prd-learning-center.md, FR-7 to FR-9 and OQ-1/OQ-4/OQ-8</li><li>architecture — _bmad-output/initiative-learning-center/architecture-learning-center/architecture-learning-center.md, AD-2, AD-4, AD-5, and AD-7</li><li>contract — _bmad-output/initiative-learning-center/architecture-learning-center/shared-contracts.md, Record and field ownership and Source synchronization lifecycle</li><li>output — _bmad-output/initiative-learning-center/architecture-learning-center/sharepoint-source-map.md</li></ul>
 <h2>Notes</h2>
-<ul>
-<li>Risk rationale: High because unsupported or over-broad source access can expose employee or corporate information and make the integration unusable.</li>
-<li>Beyond-criteria check: Source owner and IT review the proposed automated read permission and explicitly identify any access path that could expose a restricted source item.</li>
-</ul>
-  </article>
+<ul><li>Risk rationale: High because unsupported or over-broad source access can expose employee or corporate information and make the integration unusable.</li><li>Beyond-criteria check: Confirm the POC remains read-only under existing SharePoint permissions and identifies any production connector, app-only credential, or broader scope as requiring the applicable owner, IT, Security, and organizational approvals.</li></ul><h2>Dependencias y seguimiento</h2><h3>Dependencias definidas</h3><p>Ninguna registrada.</p><h3>Dependencias pendientes ahora</h3><p>Ninguna registrada.</p><h3>Tickets que desbloquea</h3><ul><li><a href="../../epic-sharepoint-sync/tickets/ticket-2.html">3.2 · Import approved SharePoint learning information</a></li></ul></article>
   <div class="end"><a class="back" href="../../../backlog-review.html">← Volver al backlog</a></div>
 </main>
-<footer>Learning Center · vista HTML local para revisión de equipo</footer>
+<footer>Learning Center · ficha web local de revisión de equipo</footer>
 </body>
 </html>
